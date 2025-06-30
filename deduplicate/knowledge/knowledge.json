@@ -1,0 +1,48 @@
+{
+    "tidb": {
+        "READ_COMMITTED": {
+            "Read_Behavior": "Ensures that reads within a transaction see only data that has been committed at the time the read operation is executed. This prevents dirty reads.",
+            "Write_Behavior": "Write operations acquire locks on the data being updated. Other transactions attempting to write to the same data are blocked until the lock is released."
+        },
+        "REPEATABLE_READ": {
+            "Read_Behavior": "Transactions see a consistent snapshot of the data as of the beginning of the transaction. Reads within the transaction are isolated from changes made by concurrent transactions.",
+            "Write_Behavior": "Pessimistic transactions use current reads for writes (UPDATE, DELETE, INSERT). They acquire locks on the data being modified, blocking other transactions from writing to the same data until the lock is released."
+        }
+    },
+    "mysql": {
+        "READ_UNCOMMITTED": {
+            "Read_Behavior": "Allows reading of uncommitted data (dirty reads are possible). Transactions may see changes that have not yet been committed by other transactions.",
+            "Write_Behavior": "Locks only the index records needed for the operation, permitting the free insertion of new records next to locked ones (no gap locking), which can lead to phantom reads. Access the version updated by the transaction itself, otherwise, the latest committed version at the time of write operation."
+        },
+        "READ_COMMITTED": {
+            "Read_Behavior": "Each consistent read within a transaction sets and reads its own fresh snapshot, seeing the most recent committed data at the time the read is executed.",
+            "Write_Behavior": "Locks only the index records needed for the operation, permitting the free insertion of new records next to locked ones (no gap locking), which can lead to phantom reads. Access the version updated by the transaction itself, otherwise, the latest committed version at the time of write operation."
+        },
+        "REPEATABLE_READ": {
+            "Read_Behavior": "Consistent reads within the same transaction read the snapshot established by the first read, ensuring that all SELECT statements are consistent with respect to each other.",
+            "Write_Behavior": "Uses gap locks or next-key locks for write operations to block insertions by other sessions into the gaps covered by the range, depending on the search condition. Access the version updated by the transaction itself, otherwise, the latest committed version at the time of write operation."
+        },
+        "SERIALIZABLE": {
+            "Read_Behavior": "Consistent reads within the same transaction read the snapshot established by the first read, ensuring that all SELECT statements are consistent with respect to each other. All plain SELECT statements are implicitly converted to SELECT ... FOR SHARE, effectively serializing access to the data and preventing any concurrent modifications.",
+            "Write_Behavior": "Enforces strict rules where write operations would block any concurrent reads or writes to the same data. Access the version updated by the transaction itself, otherwise, the latest committed version at the time of write operation."
+        }
+    },
+    "mariadb": {
+        "READ_UNCOMMITTED": {
+            "Read_Behavior": "Allows reading of uncommitted data (dirty reads are possible). Transactions may see changes that have not yet been committed by other transactions.",
+            "Write_Behavior": "Locks only the index records needed for the operation, permitting the free insertion of new records next to locked ones (no gap locking), which can lead to phantom reads. Access the version updated by the transaction itself, otherwise, the latest committed version at the time of write operation."
+        },
+        "READ_COMMITTED": {
+            "Read_Behavior": "Each consistent read within a transaction sets and reads its own fresh snapshot, seeing the most recent committed data at the time the read is executed.",
+            "Write_Behavior": "Locks only the index records needed for the operation, permitting the free insertion of new records next to locked ones (no gap locking), which can lead to phantom reads. Access the version updated by the transaction itself, otherwise, the latest committed version at the time of write operation."
+        },
+        "REPEATABLE_READ": {
+            "Read_Behavior": "Consistent reads within the same transaction read the snapshot established by the first read, ensuring that all SELECT statements are consistent with respect to each other.",
+            "Write_Behavior": "Uses gap locks or next-key locks for write operations to block insertions by other sessions into the gaps covered by the range, depending on the search condition. Access the version updated by the transaction itself, otherwise, the latest committed version at the time of write operation."
+        },
+        "SERIALIZABLE": {
+            "Read_Behavior": "Consistent reads within the same transaction read the snapshot established by the first read, ensuring that all SELECT statements are consistent with respect to each other. All plain SELECT statements are implicitly converted to SELECT ... FOR SHARE, effectively serializing access to the data and preventing any concurrent modifications.",
+            "Write_Behavior": "Enforces strict rules where write operations would block any concurrent reads or writes to the same data. Access the version updated by the transaction itself, otherwise, the latest committed version at the time of write operation."
+        }
+    }
+}

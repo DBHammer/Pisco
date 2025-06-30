@@ -1,0 +1,709 @@
+[
+  {
+    "id": "mysql_113228/res-1705893603-",
+    "database": "mysql",
+    "case": "mysql_113228",
+    "isolation_level": {
+      "0-0-2,269": "REPEATABLE_READ",
+      "0-0-11,268": "REPEATABLE_READ"
+    },
+    "schema": [
+      "create table table0 (pkId integer, pkAttr0 integer, coAttr0_0 integer, primary key(pkAttr0));\n",
+      "alter table table0 add index table0index_pk(pkAttr0);"
+    ],
+    "init_data": [
+      "insert into table0 (pkId,pkAttr0,coAttr0_0) values (\"0\",\"0\",\"475\");\n",
+      "insert into table0 (pkId,pkAttr0,coAttr0_0) values (\"1\",\"9\",\"9492\");\n",
+      "insert into table0 (pkId,pkAttr0,coAttr0_0) values (\"2\",\"12\",\"1891\");\n",
+      "insert into table0 (pkId,pkAttr0,coAttr0_0) values (\"3\",\"15\",\"475\");\n",
+      "insert into table0 (pkId,pkAttr0,coAttr0_0) values (\"4\",\"21\",\"9200\");\n",
+      "insert into table0 (pkId,pkAttr0,coAttr0_0) values (\"5\",\"26\",\"556\");\n",
+      "insert into table0 (pkId,pkAttr0,coAttr0_0) values (\"6\",\"30\",\"4398\");\n",
+      "insert into table0 (pkId,pkAttr0,coAttr0_0) values (\"7\",\"38\",\"203\");\n",
+      "insert into table0 (pkId,pkAttr0,coAttr0_0) values (\"8\",\"42\",\"15\");\n",
+      "insert into table0 (pkId,pkAttr0,coAttr0_0) values (\"9\",\"48\",\"5439\");\n",
+      "insert into table0 (pkId,pkAttr0,coAttr0_0) values (\"10\",\"53\",\"3631\");\n",
+      "insert into table0 (pkId,pkAttr0,coAttr0_0) values (\"11\",\"56\",\"5439\");\n",
+      "insert into table0 (pkId,pkAttr0,coAttr0_0) values (\"12\",\"64\",\"3946\");\n",
+      "insert into table0 (pkId,pkAttr0,coAttr0_0) values (\"13\",\"66\",\"7810\");\n",
+      "insert into table0 (pkId,pkAttr0,coAttr0_0) values (\"14\",\"70\",\"15\");\n",
+      "insert into table0 (pkId,pkAttr0,coAttr0_0) values (\"15\",\"79\",\"2938\");\n",
+      "insert into table0 (pkId,pkAttr0,coAttr0_0) values (\"16\",\"81\",\"9730\");\n",
+      "insert into table0 (pkId,pkAttr0,coAttr0_0) values (\"17\",\"86\",\"540\");\n",
+      "insert into table0 (pkId,pkAttr0,coAttr0_0) values (\"18\",\"90\",\"7\");\n",
+      "insert into table0 (pkId,pkAttr0,coAttr0_0) values (\"19\",\"98\",\"9501\");\n",
+      "insert into table0 (pkId,pkAttr0,coAttr0_0) values (\"20\",\"104\",\"6171\");\n",
+      "insert into table0 (pkId,pkAttr0,coAttr0_0) values (\"21\",\"108\",\"3946\");\n",
+      "insert into table0 (pkId,pkAttr0,coAttr0_0) values (\"22\",\"112\",\"15\");\n",
+      "insert into table0 (pkId,pkAttr0,coAttr0_0) values (\"23\",\"116\",\"5692\");\n",
+      "insert into table0 (pkId,pkAttr0,coAttr0_0) values (\"24\",\"122\",\"9730\");\n",
+      "insert into table0 (pkId,pkAttr0,coAttr0_0) values (\"25\",\"125\",\"6171\");\n",
+      "insert into table0 (pkId,pkAttr0,coAttr0_0) values (\"26\",\"131\",\"9761\");\n",
+      "insert into table0 (pkId,pkAttr0,coAttr0_0) values (\"27\",\"139\",\"5380\");\n",
+      "insert into table0 (pkId,pkAttr0,coAttr0_0) values (\"28\",\"141\",\"6017\");\n",
+      "insert into table0 (pkId,pkAttr0,coAttr0_0) values (\"29\",\"147\",\"3631\");\n",
+      "insert into table0 (pkId,pkAttr0,coAttr0_0) values (\"30\",\"153\",\"540\");\n",
+      "insert into table0 (pkId,pkAttr0,coAttr0_0) values (\"31\",\"157\",\"2707\");\n",
+      "insert into table0 (pkId,pkAttr0,coAttr0_0) values (\"32\",\"163\",\"9293\");"
+    ],
+    "operation": [
+      [
+        {
+          "operationID": "0-0-11,268,0",
+          "sql": "start transaction;"
+        }
+      ],
+      [
+        {
+          "operationID": "0-0-2,269,0",
+          "sql": "start transaction;"
+        }
+      ],
+      [
+        {
+          "operationID": "0-0-2,269,1",
+          "sql": "select `pkId`, `pkAttr0` from `table0` where ( `pkAttr0`  =  116  )  ;",
+          "readTupleList": [
+            "23->{\"pkAttr0\": \"116\"}"
+          ]
+        }
+      ],
+      [
+        {
+          "operationID": "0-0-11,268,1",
+          "sql": "update `table0` set `coAttr0_0` = 3599 ;",
+          "writeTupleList": [
+            "0->{\"coAttr0_0\": \"3599\"}",
+            "1->{\"coAttr0_0\": \"3599\"}",
+            "2->{\"coAttr0_0\": \"3599\"}",
+            "3->{\"coAttr0_0\": \"3599\"}",
+            "4->{\"coAttr0_0\": \"3599\"}",
+            "5->{\"coAttr0_0\": \"3599\"}",
+            "6->{\"coAttr0_0\": \"3599\"}",
+            "7->{\"coAttr0_0\": \"3599\"}",
+            "8->{\"coAttr0_0\": \"3599\"}",
+            "9->{\"coAttr0_0\": \"3599\"}",
+            "10->{\"coAttr0_0\": \"3599\"}",
+            "11->{\"coAttr0_0\": \"3599\"}",
+            "12->{\"coAttr0_0\": \"3599\"}",
+            "13->{\"coAttr0_0\": \"3599\"}",
+            "14->{\"coAttr0_0\": \"3599\"}",
+            "15->{\"coAttr0_0\": \"3599\"}",
+            "16->{\"coAttr0_0\": \"3599\"}",
+            "17->{\"coAttr0_0\": \"3599\"}",
+            "18->{\"coAttr0_0\": \"3599\"}",
+            "19->{\"coAttr0_0\": \"3599\"}",
+            "20->{\"coAttr0_0\": \"3599\"}",
+            "21->{\"coAttr0_0\": \"3599\"}",
+            "22->{\"coAttr0_0\": \"3599\"}",
+            "23->{\"coAttr0_0\": \"3599\"}",
+            "24->{\"coAttr0_0\": \"3599\"}",
+            "25->{\"coAttr0_0\": \"3599\"}",
+            "26->{\"coAttr0_0\": \"3599\"}",
+            "27->{\"coAttr0_0\": \"3599\"}",
+            "28->{\"coAttr0_0\": \"3599\"}",
+            "29->{\"coAttr0_0\": \"3599\"}",
+            "30->{\"coAttr0_0\": \"3599\"}",
+            "31->{\"coAttr0_0\": \"3599\"}",
+            "32->{\"coAttr0_0\": \"3599\"}"
+          ]
+        }
+      ],
+      [
+        {
+          "operationID": "0-0-11,268,4",
+          "sql": "COMMIT"
+        }
+      ],
+      [
+        {
+          "operationID": "0-0-2,269,2",
+          "sql": "update `table0` set `coAttr0_0` = 3599 ;",
+          "writeTupleList": [
+            "0->{\"coAttr0_0\": \"3599\"}",
+            "1->{\"coAttr0_0\": \"3599\"}",
+            "2->{\"coAttr0_0\": \"3599\"}",
+            "3->{\"coAttr0_0\": \"3599\"}",
+            "4->{\"coAttr0_0\": \"3599\"}",
+            "5->{\"coAttr0_0\": \"3599\"}",
+            "6->{\"coAttr0_0\": \"3599\"}",
+            "7->{\"coAttr0_0\": \"3599\"}",
+            "8->{\"coAttr0_0\": \"3599\"}",
+            "9->{\"coAttr0_0\": \"3599\"}",
+            "10->{\"coAttr0_0\": \"3599\"}",
+            "11->{\"coAttr0_0\": \"3599\"}",
+            "12->{\"coAttr0_0\": \"3599\"}",
+            "13->{\"coAttr0_0\": \"3599\"}",
+            "14->{\"coAttr0_0\": \"3599\"}",
+            "15->{\"coAttr0_0\": \"3599\"}",
+            "16->{\"coAttr0_0\": \"3599\"}",
+            "17->{\"coAttr0_0\": \"3599\"}",
+            "18->{\"coAttr0_0\": \"3599\"}",
+            "19->{\"coAttr0_0\": \"3599\"}",
+            "20->{\"coAttr0_0\": \"3599\"}",
+            "21->{\"coAttr0_0\": \"3599\"}",
+            "22->{\"coAttr0_0\": \"3599\"}",
+            "23->{\"coAttr0_0\": \"3599\"}",
+            "24->{\"coAttr0_0\": \"3599\"}",
+            "25->{\"coAttr0_0\": \"3599\"}",
+            "26->{\"coAttr0_0\": \"3599\"}",
+            "27->{\"coAttr0_0\": \"3599\"}",
+            "28->{\"coAttr0_0\": \"3599\"}",
+            "29->{\"coAttr0_0\": \"3599\"}",
+            "30->{\"coAttr0_0\": \"3599\"}",
+            "31->{\"coAttr0_0\": \"3599\"}",
+            "32->{\"coAttr0_0\": \"3599\"}"
+          ]
+        }
+      ],
+      [
+        {
+          "operationID": "0-0-2,269,4",
+          "sql": "select `pkId`, `coAttr0_0`, `pkAttr0` from `table0` where ( `pkAttr0`  =  86  )  ;",
+          "readTupleList": [
+            "17->{\"coAttr0_0\": \"24\", \"pkAttr0\": \"86\"}"
+          ]
+        }
+      ],
+      [
+        {
+          "operationID": "0-0-2,269,5",
+          "sql": "COMMIT"
+        }
+      ]
+    ]
+  },
+  {
+    "id": "tidb_36718/res-1705902818-",
+    "database": "tidb",
+    "case": "tidb_36718",
+    "isolation_level": {
+      "0-0-10,52": "REPEATABLE_READ",
+      "0-0-11,44": "REPEATABLE_READ"
+    },
+    "schema": [
+      "create table table0 (pkId integer, pkAttr0 integer, coAttr0_0 integer, primary key(pkAttr0) NONCLUSTERED) ;\n",
+      "alter table table0 add index table0index_pk(pkAttr0);"
+    ],
+    "init_data": [
+      "insert into table0 (pkId,pkAttr0,coAttr0_0) values (\"0\",\"5\",\"4\");\n",
+      "insert into table0 (pkId,pkAttr0,coAttr0_0) values (\"1\",\"13\",\"3\");\n",
+      "insert into table0 (pkId,pkAttr0,coAttr0_0) values (\"2\",\"17\",\"3\");\n",
+      "insert into table0 (pkId,pkAttr0,coAttr0_0) values (\"3\",\"24\",\"8\");\n",
+      "insert into table0 (pkId,pkAttr0,coAttr0_0) values (\"4\",\"33\",\"5\");\n",
+      "insert into table0 (pkId,pkAttr0,coAttr0_0) values (\"5\",\"41\",\"6\");\n",
+      "insert into table0 (pkId,pkAttr0,coAttr0_0) values (\"6\",\"46\",\"3\");\n",
+      "insert into table0 (pkId,pkAttr0,coAttr0_0) values (\"7\",\"52\",\"4\");\n",
+      "insert into table0 (pkId,pkAttr0,coAttr0_0) values (\"8\",\"61\",\"4\");\n",
+      "insert into table0 (pkId,pkAttr0,coAttr0_0) values (\"9\",\"68\",\"9\");\n",
+      "insert into table0 (pkId,pkAttr0,coAttr0_0) values (\"10\",\"74\",\"1\");\n",
+      "insert into table0 (pkId,pkAttr0,coAttr0_0) values (\"11\",\"80\",\"1\");\n",
+      "insert into table0 (pkId,pkAttr0,coAttr0_0) values (\"12\",\"85\",\"3\");\n",
+      "insert into table0 (pkId,pkAttr0,coAttr0_0) values (\"13\",\"91\",\"3\");\n",
+      "insert into table0 (pkId,pkAttr0,coAttr0_0) values (\"14\",\"99\",\"6\");\n",
+      "insert into table0 (pkId,pkAttr0,coAttr0_0) values (\"15\",\"107\",\"6\");\n",
+      "insert into table0 (pkId,pkAttr0,coAttr0_0) values (\"16\",\"113\",\"0\");\n",
+      "insert into table0 (pkId,pkAttr0,coAttr0_0) values (\"17\",\"119\",\"9\");\n",
+      "insert into table0 (pkId,pkAttr0,coAttr0_0) values (\"18\",\"127\",\"5\");\n",
+      "insert into table0 (pkId,pkAttr0,coAttr0_0) values (\"19\",\"135\",\"9\");\n",
+      "insert into table0 (pkId,pkAttr0,coAttr0_0) values (\"20\",\"141\",\"1\");\n",
+      "insert into table0 (pkId,pkAttr0,coAttr0_0) values (\"21\",\"147\",\"1\");\n",
+      "insert into table0 (pkId,pkAttr0,coAttr0_0) values (\"22\",\"155\",\"4\");\n",
+      "insert into table0 (pkId,pkAttr0,coAttr0_0) values (\"23\",\"163\",\"9\");\n",
+      "insert into table0 (pkId,pkAttr0,coAttr0_0) values (\"24\",\"169\",\"0\");\n",
+      "insert into table0 (pkId,pkAttr0,coAttr0_0) values (\"25\",\"175\",\"6\");\n",
+      "insert into table0 (pkId,pkAttr0,coAttr0_0) values (\"26\",\"183\",\"9\");\n",
+      "insert into table0 (pkId,pkAttr0,coAttr0_0) values (\"27\",\"191\",\"1\");\n",
+      "insert into table0 (pkId,pkAttr0,coAttr0_0) values (\"28\",\"196\",\"4\");\n",
+      "insert into table0 (pkId,pkAttr0,coAttr0_0) values (\"29\",\"209\",\"0\");\n",
+      "insert into table0 (pkId,pkAttr0,coAttr0_0) values (\"30\",\"212\",\"5\");\n",
+      "insert into table0 (pkId,pkAttr0,coAttr0_0) values (\"31\",\"220\",\"1\");\n",
+      "insert into table0 (pkId,pkAttr0,coAttr0_0) values (\"32\",\"224\",\"8\");\n",
+      "insert into table0 (pkId,pkAttr0,coAttr0_0) values (\"33\",\"237\",\"9\");\n",
+      "insert into table0 (pkId,pkAttr0,coAttr0_0) values (\"34\",\"240\",\"1\");\n",
+      "insert into table0 (pkId,pkAttr0,coAttr0_0) values (\"35\",\"248\",\"4\");\n",
+      "insert into table0 (pkId,pkAttr0,coAttr0_0) values (\"36\",\"252\",\"5\");\n",
+      "insert into table0 (pkId,pkAttr0,coAttr0_0) values (\"37\",\"260\",\"3\");\n",
+      "insert into table0 (pkId,pkAttr0,coAttr0_0) values (\"38\",\"268\",\"3\");\n",
+      "insert into table0 (pkId,pkAttr0,coAttr0_0) values (\"39\",\"274\",\"1\");\n",
+      "insert into table0 (pkId,pkAttr0,coAttr0_0) values (\"40\",\"280\",\"3\");\n",
+      "insert into table0 (pkId,pkAttr0,coAttr0_0) values (\"41\",\"288\",\"0\");\n",
+      "insert into table0 (pkId,pkAttr0,coAttr0_0) values (\"42\",\"296\",\"3\");\n",
+      "insert into table0 (pkId,pkAttr0,coAttr0_0) values (\"43\",\"302\",\"8\");\n",
+      "insert into table0 (pkId,pkAttr0,coAttr0_0) values (\"44\",\"313\",\"8\");\n",
+      "insert into table0 (pkId,pkAttr0,coAttr0_0) values (\"45\",\"320\",\"3\");"
+    ],
+    "operation": [
+      [
+        {
+          "operationID": "0-0-11,44,0",
+          "sql": "start transaction;"
+        }
+      ],
+      [
+        {
+          "operationID": "0-0-10,52,0",
+          "sql": "start transaction;"
+        }
+      ],
+      [
+        {
+          "operationID": "0-0-11,44,3",
+          "sql": "update `table0` set `coAttr0_0` = 5 ;",
+          "writeTupleList": [
+            "0->{\"coAttr0_0\": \"5\"}",
+            "1->{\"coAttr0_0\": \"5\"}",
+            "2->{\"coAttr0_0\": \"5\"}",
+            "3->{\"coAttr0_0\": \"5\"}",
+            "4->{\"coAttr0_0\": \"5\"}",
+            "5->{\"coAttr0_0\": \"5\"}",
+            "6->{\"coAttr0_0\": \"5\"}",
+            "7->{\"coAttr0_0\": \"5\"}",
+            "8->{\"coAttr0_0\": \"5\"}",
+            "9->{\"coAttr0_0\": \"5\"}",
+            "10->{\"coAttr0_0\": \"5\"}",
+            "11->{\"coAttr0_0\": \"5\"}",
+            "12->{\"coAttr0_0\": \"5\"}",
+            "13->{\"coAttr0_0\": \"5\"}",
+            "14->{\"coAttr0_0\": \"5\"}",
+            "15->{\"coAttr0_0\": \"5\"}",
+            "16->{\"coAttr0_0\": \"5\"}",
+            "17->{\"coAttr0_0\": \"5\"}",
+            "18->{\"coAttr0_0\": \"5\"}",
+            "19->{\"coAttr0_0\": \"5\"}",
+            "20->{\"coAttr0_0\": \"5\"}",
+            "21->{\"coAttr0_0\": \"5\"}",
+            "22->{\"coAttr0_0\": \"5\"}",
+            "23->{\"coAttr0_0\": \"5\"}",
+            "24->{\"coAttr0_0\": \"5\"}",
+            "25->{\"coAttr0_0\": \"5\"}",
+            "26->{\"coAttr0_0\": \"5\"}",
+            "27->{\"coAttr0_0\": \"5\"}",
+            "28->{\"coAttr0_0\": \"5\"}",
+            "29->{\"coAttr0_0\": \"5\"}",
+            "30->{\"coAttr0_0\": \"5\"}",
+            "31->{\"coAttr0_0\": \"5\"}",
+            "32->{\"coAttr0_0\": \"5\"}",
+            "33->{\"coAttr0_0\": \"5\"}",
+            "34->{\"coAttr0_0\": \"5\"}",
+            "35->{\"coAttr0_0\": \"5\"}",
+            "36->{\"coAttr0_0\": \"5\"}",
+            "37->{\"coAttr0_0\": \"5\"}",
+            "38->{\"coAttr0_0\": \"5\"}",
+            "39->{\"coAttr0_0\": \"5\"}",
+            "40->{\"coAttr0_0\": \"5\"}",
+            "41->{\"coAttr0_0\": \"5\"}",
+            "42->{\"coAttr0_0\": \"5\"}",
+            "43->{\"coAttr0_0\": \"5\"}",
+            "44->{\"coAttr0_0\": \"5\"}",
+            "45->{\"coAttr0_0\": \"5\"}"
+          ]
+        }
+      ],
+      [
+        {
+          "operationID": "0-0-11,44,7",
+          "sql": "COMMIT"
+        }
+      ],
+      [
+        {
+          "operationID": "0-0-10,52,1",
+          "sql": "update `table0` set `coAttr0_0` = 5 ;",
+          "writeTupleList": [
+            "0->{\"coAttr0_0\": \"5\"}",
+            "1->{\"coAttr0_0\": \"5\"}",
+            "2->{\"coAttr0_0\": \"5\"}",
+            "3->{\"coAttr0_0\": \"5\"}",
+            "4->{\"coAttr0_0\": \"5\"}",
+            "5->{\"coAttr0_0\": \"5\"}",
+            "6->{\"coAttr0_0\": \"5\"}",
+            "7->{\"coAttr0_0\": \"5\"}",
+            "8->{\"coAttr0_0\": \"5\"}",
+            "9->{\"coAttr0_0\": \"5\"}",
+            "10->{\"coAttr0_0\": \"5\"}",
+            "11->{\"coAttr0_0\": \"5\"}",
+            "12->{\"coAttr0_0\": \"5\"}",
+            "13->{\"coAttr0_0\": \"5\"}",
+            "14->{\"coAttr0_0\": \"5\"}",
+            "15->{\"coAttr0_0\": \"5\"}",
+            "16->{\"coAttr0_0\": \"5\"}",
+            "17->{\"coAttr0_0\": \"5\"}",
+            "18->{\"coAttr0_0\": \"5\"}",
+            "19->{\"coAttr0_0\": \"5\"}",
+            "20->{\"coAttr0_0\": \"5\"}",
+            "21->{\"coAttr0_0\": \"5\"}",
+            "22->{\"coAttr0_0\": \"5\"}",
+            "23->{\"coAttr0_0\": \"5\"}",
+            "24->{\"coAttr0_0\": \"5\"}",
+            "25->{\"coAttr0_0\": \"5\"}",
+            "26->{\"coAttr0_0\": \"5\"}",
+            "27->{\"coAttr0_0\": \"5\"}",
+            "28->{\"coAttr0_0\": \"5\"}",
+            "29->{\"coAttr0_0\": \"5\"}",
+            "30->{\"coAttr0_0\": \"5\"}",
+            "31->{\"coAttr0_0\": \"5\"}",
+            "32->{\"coAttr0_0\": \"5\"}",
+            "33->{\"coAttr0_0\": \"5\"}",
+            "34->{\"coAttr0_0\": \"5\"}",
+            "35->{\"coAttr0_0\": \"5\"}",
+            "36->{\"coAttr0_0\": \"5\"}",
+            "37->{\"coAttr0_0\": \"5\"}",
+            "38->{\"coAttr0_0\": \"5\"}",
+            "39->{\"coAttr0_0\": \"5\"}",
+            "40->{\"coAttr0_0\": \"5\"}",
+            "41->{\"coAttr0_0\": \"5\"}",
+            "42->{\"coAttr0_0\": \"5\"}",
+            "43->{\"coAttr0_0\": \"5\"}",
+            "44->{\"coAttr0_0\": \"5\"}",
+            "45->{\"coAttr0_0\": \"5\"}"
+          ]
+        }
+      ],
+      [
+        {
+          "operationID": "0-0-10,52,2",
+          "sql": "select `pkId`, `coAttr0_0`, `pkAttr0` from `table0` where ( `coAttr0_0`  =  3  )  ;",
+          "readTupleList": []
+        }
+      ],
+      [
+        {
+          "operationID": "0-0-10,52,4",
+          "sql": "COMMIT"
+        }
+      ]
+    ]
+  },
+  {
+    "id": "tidb_36718/res-1705913138-",
+    "database": "tidb",
+    "case": "tidb_36718",
+    "isolation_level": {
+      "0-0-10,192": "REPEATABLE_READ",
+      "0-0-7,194": "REPEATABLE_READ"
+    },
+    "schema": [
+      "create table table0 (pkId integer, pkAttr0 integer, coAttr0_0 integer, coAttr0_1 integer, primary key(pkAttr0) NONCLUSTERED) ;\n",
+      "alter table table0 add index table0index_pk(pkAttr0);"
+    ],
+    "init_data": [
+      "insert into table0 (pkId,pkAttr0,coAttr0_0,coAttr0_1) values (\"0\",\"4\",\"11\",\"11\");\n",
+      "insert into table0 (pkId,pkAttr0,coAttr0_0,coAttr0_1) values (\"1\",\"11\",\"11\",\"2\");\n",
+      "insert into table0 (pkId,pkAttr0,coAttr0_0,coAttr0_1) values (\"2\",\"21\",\"11\",\"9\");\n",
+      "insert into table0 (pkId,pkAttr0,coAttr0_0,coAttr0_1) values (\"3\",\"28\",\"3\",\"12\");\n",
+      "insert into table0 (pkId,pkAttr0,coAttr0_0,coAttr0_1) values (\"4\",\"36\",\"10\",\"11\");\n",
+      "insert into table0 (pkId,pkAttr0,coAttr0_0,coAttr0_1) values (\"5\",\"44\",\"10\",\"8\");\n",
+      "insert into table0 (pkId,pkAttr0,coAttr0_0,coAttr0_1) values (\"6\",\"52\",\"8\",\"2\");\n",
+      "insert into table0 (pkId,pkAttr0,coAttr0_0,coAttr0_1) values (\"7\",\"61\",\"3\",\"5\");\n",
+      "insert into table0 (pkId,pkAttr0,coAttr0_0,coAttr0_1) values (\"8\",\"69\",\"8\",\"1\");\n",
+      "insert into table0 (pkId,pkAttr0,coAttr0_0,coAttr0_1) values (\"9\",\"75\",\"11\",\"5\");\n",
+      "insert into table0 (pkId,pkAttr0,coAttr0_0,coAttr0_1) values (\"10\",\"83\",\"3\",\"2\");\n",
+      "insert into table0 (pkId,pkAttr0,coAttr0_0,coAttr0_1) values (\"11\",\"93\",\"2\",\"2\");\n",
+      "insert into table0 (pkId,pkAttr0,coAttr0_0,coAttr0_1) values (\"12\",\"99\",\"11\",\"12\");\n",
+      "insert into table0 (pkId,pkAttr0,coAttr0_0,coAttr0_1) values (\"13\",\"107\",\"11\",\"12\");\n",
+      "insert into table0 (pkId,pkAttr0,coAttr0_0,coAttr0_1) values (\"14\",\"115\",\"2\",\"2\");\n",
+      "insert into table0 (pkId,pkAttr0,coAttr0_0,coAttr0_1) values (\"15\",\"125\",\"12\",\"9\");\n",
+      "insert into table0 (pkId,pkAttr0,coAttr0_0,coAttr0_1) values (\"16\",\"131\",\"3\",\"1\");\n",
+      "insert into table0 (pkId,pkAttr0,coAttr0_0,coAttr0_1) values (\"17\",\"139\",\"11\",\"5\");\n",
+      "insert into table0 (pkId,pkAttr0,coAttr0_0,coAttr0_1) values (\"18\",\"149\",\"1\",\"2\");\n",
+      "insert into table0 (pkId,pkAttr0,coAttr0_0,coAttr0_1) values (\"19\",\"157\",\"3\",\"8\");\n",
+      "insert into table0 (pkId,pkAttr0,coAttr0_0,coAttr0_1) values (\"20\",\"163\",\"8\",\"10\");\n",
+      "insert into table0 (pkId,pkAttr0,coAttr0_0,coAttr0_1) values (\"21\",\"171\",\"11\",\"11\");\n",
+      "insert into table0 (pkId,pkAttr0,coAttr0_0,coAttr0_1) values (\"22\",\"181\",\"10\",\"11\");\n",
+      "insert into table0 (pkId,pkAttr0,coAttr0_0,coAttr0_1) values (\"23\",\"186\",\"3\",\"1\");\n",
+      "insert into table0 (pkId,pkAttr0,coAttr0_0,coAttr0_1) values (\"24\",\"198\",\"3\",\"12\");\n",
+      "insert into table0 (pkId,pkAttr0,coAttr0_0,coAttr0_1) values (\"25\",\"206\",\"3\",\"12\");\n",
+      "insert into table0 (pkId,pkAttr0,coAttr0_0,coAttr0_1) values (\"26\",\"210\",\"11\",\"12\");\n",
+      "insert into table0 (pkId,pkAttr0,coAttr0_0,coAttr0_1) values (\"27\",\"218\",\"3\",\"11\");\n",
+      "insert into table0 (pkId,pkAttr0,coAttr0_0,coAttr0_1) values (\"28\",\"230\",\"11\",\"1\");\n",
+      "insert into table0 (pkId,pkAttr0,coAttr0_0,coAttr0_1) values (\"29\",\"238\",\"5\",\"11\");\n",
+      "insert into table0 (pkId,pkAttr0,coAttr0_0,coAttr0_1) values (\"30\",\"242\",\"11\",\"2\");\n",
+      "insert into table0 (pkId,pkAttr0,coAttr0_0,coAttr0_1) values (\"31\",\"254\",\"5\",\"5\");\n",
+      "insert into table0 (pkId,pkAttr0,coAttr0_0,coAttr0_1) values (\"32\",\"262\",\"8\",\"1\");\n",
+      "insert into table0 (pkId,pkAttr0,coAttr0_0,coAttr0_1) values (\"33\",\"270\",\"11\",\"10\");\n",
+      "insert into table0 (pkId,pkAttr0,coAttr0_0,coAttr0_1) values (\"34\",\"274\",\"1\",\"1\");"
+    ],
+    "operation": [
+      [
+        {
+          "operationID": "0-0-10,192,0",
+          "sql": "start transaction;"
+        }
+      ],
+      [
+        {
+          "operationID": "0-0-7,194,0",
+          "sql": "start transaction;"
+        }
+      ],
+      [
+        {
+          "operationID": "0-0-10,192,5",
+          "sql": "update `table0` set `coAttr0_0` = 12, `coAttr0_1` = 5 ;",
+          "writeTupleList": [
+            "0->{\"coAttr0_1\": \"5\", \"coAttr0_0\": \"12\"}",
+            "1->{\"coAttr0_1\": \"5\", \"coAttr0_0\": \"12\"}",
+            "2->{\"coAttr0_1\": \"5\", \"coAttr0_0\": \"12\"}",
+            "3->{\"coAttr0_1\": \"5\", \"coAttr0_0\": \"12\"}",
+            "4->{\"coAttr0_1\": \"5\", \"coAttr0_0\": \"12\"}",
+            "5->{\"coAttr0_1\": \"5\", \"coAttr0_0\": \"12\"}",
+            "6->{\"coAttr0_1\": \"5\", \"coAttr0_0\": \"12\"}",
+            "7->{\"coAttr0_1\": \"5\", \"coAttr0_0\": \"12\"}",
+            "8->{\"coAttr0_1\": \"5\", \"coAttr0_0\": \"12\"}",
+            "9->{\"coAttr0_1\": \"5\", \"coAttr0_0\": \"12\"}",
+            "10->{\"coAttr0_1\": \"5\", \"coAttr0_0\": \"12\"}",
+            "11->{\"coAttr0_1\": \"5\", \"coAttr0_0\": \"12\"}",
+            "12->{\"coAttr0_1\": \"5\", \"coAttr0_0\": \"12\"}",
+            "13->{\"coAttr0_1\": \"5\", \"coAttr0_0\": \"12\"}",
+            "14->{\"coAttr0_1\": \"5\", \"coAttr0_0\": \"12\"}",
+            "15->{\"coAttr0_1\": \"5\", \"coAttr0_0\": \"12\"}",
+            "16->{\"coAttr0_1\": \"5\", \"coAttr0_0\": \"12\"}",
+            "17->{\"coAttr0_1\": \"5\", \"coAttr0_0\": \"12\"}",
+            "18->{\"coAttr0_1\": \"5\", \"coAttr0_0\": \"12\"}",
+            "19->{\"coAttr0_1\": \"5\", \"coAttr0_0\": \"12\"}",
+            "20->{\"coAttr0_1\": \"5\", \"coAttr0_0\": \"12\"}",
+            "21->{\"coAttr0_1\": \"5\", \"coAttr0_0\": \"12\"}",
+            "22->{\"coAttr0_1\": \"5\", \"coAttr0_0\": \"12\"}",
+            "23->{\"coAttr0_1\": \"5\", \"coAttr0_0\": \"12\"}",
+            "24->{\"coAttr0_1\": \"5\", \"coAttr0_0\": \"12\"}",
+            "25->{\"coAttr0_1\": \"5\", \"coAttr0_0\": \"12\"}",
+            "26->{\"coAttr0_1\": \"5\", \"coAttr0_0\": \"12\"}",
+            "27->{\"coAttr0_1\": \"5\", \"coAttr0_0\": \"12\"}",
+            "28->{\"coAttr0_1\": \"5\", \"coAttr0_0\": \"12\"}",
+            "29->{\"coAttr0_1\": \"5\", \"coAttr0_0\": \"12\"}",
+            "30->{\"coAttr0_1\": \"5\", \"coAttr0_0\": \"12\"}",
+            "31->{\"coAttr0_1\": \"5\", \"coAttr0_0\": \"12\"}",
+            "32->{\"coAttr0_1\": \"5\", \"coAttr0_0\": \"12\"}",
+            "33->{\"coAttr0_1\": \"5\", \"coAttr0_0\": \"12\"}",
+            "34->{\"coAttr0_1\": \"5\", \"coAttr0_0\": \"12\"}"
+          ]
+        }
+      ],
+      [
+        {
+          "operationID": "0-0-10,192,7",
+          "sql": "COMMIT"
+        }
+      ],
+      [
+        {
+          "operationID": "0-0-7,194,1",
+          "sql": "update `table0` set `coAttr0_0` = 12, `coAttr0_1` = 5 ;",
+          "writeTupleList": [
+            "0->{\"coAttr0_1\": \"5\", \"coAttr0_0\": \"12\"}",
+            "1->{\"coAttr0_1\": \"5\", \"coAttr0_0\": \"12\"}",
+            "2->{\"coAttr0_1\": \"5\", \"coAttr0_0\": \"12\"}",
+            "3->{\"coAttr0_1\": \"5\", \"coAttr0_0\": \"12\"}",
+            "4->{\"coAttr0_1\": \"5\", \"coAttr0_0\": \"12\"}",
+            "5->{\"coAttr0_1\": \"5\", \"coAttr0_0\": \"12\"}",
+            "6->{\"coAttr0_1\": \"5\", \"coAttr0_0\": \"12\"}",
+            "7->{\"coAttr0_1\": \"5\", \"coAttr0_0\": \"12\"}",
+            "8->{\"coAttr0_1\": \"5\", \"coAttr0_0\": \"12\"}",
+            "9->{\"coAttr0_1\": \"5\", \"coAttr0_0\": \"12\"}",
+            "10->{\"coAttr0_1\": \"5\", \"coAttr0_0\": \"12\"}",
+            "11->{\"coAttr0_1\": \"5\", \"coAttr0_0\": \"12\"}",
+            "12->{\"coAttr0_1\": \"5\", \"coAttr0_0\": \"12\"}",
+            "13->{\"coAttr0_1\": \"5\", \"coAttr0_0\": \"12\"}",
+            "14->{\"coAttr0_1\": \"5\", \"coAttr0_0\": \"12\"}",
+            "15->{\"coAttr0_1\": \"5\", \"coAttr0_0\": \"12\"}",
+            "16->{\"coAttr0_1\": \"5\", \"coAttr0_0\": \"12\"}",
+            "17->{\"coAttr0_1\": \"5\", \"coAttr0_0\": \"12\"}",
+            "18->{\"coAttr0_1\": \"5\", \"coAttr0_0\": \"12\"}",
+            "19->{\"coAttr0_1\": \"5\", \"coAttr0_0\": \"12\"}",
+            "20->{\"coAttr0_1\": \"5\", \"coAttr0_0\": \"12\"}",
+            "21->{\"coAttr0_1\": \"5\", \"coAttr0_0\": \"12\"}",
+            "22->{\"coAttr0_1\": \"5\", \"coAttr0_0\": \"12\"}",
+            "23->{\"coAttr0_1\": \"5\", \"coAttr0_0\": \"12\"}",
+            "24->{\"coAttr0_1\": \"5\", \"coAttr0_0\": \"12\"}",
+            "25->{\"coAttr0_1\": \"5\", \"coAttr0_0\": \"12\"}",
+            "26->{\"coAttr0_1\": \"5\", \"coAttr0_0\": \"12\"}",
+            "27->{\"coAttr0_1\": \"5\", \"coAttr0_0\": \"12\"}",
+            "28->{\"coAttr0_1\": \"5\", \"coAttr0_0\": \"12\"}",
+            "29->{\"coAttr0_1\": \"5\", \"coAttr0_0\": \"12\"}",
+            "30->{\"coAttr0_1\": \"5\", \"coAttr0_0\": \"12\"}",
+            "31->{\"coAttr0_1\": \"5\", \"coAttr0_0\": \"12\"}",
+            "32->{\"coAttr0_1\": \"5\", \"coAttr0_0\": \"12\"}",
+            "33->{\"coAttr0_1\": \"5\", \"coAttr0_0\": \"12\"}",
+            "34->{\"coAttr0_1\": \"5\", \"coAttr0_0\": \"12\"}"
+          ]
+        }
+      ],
+      [
+        {
+          "operationID": "0-0-7,194,3",
+          "sql": "select `pkId`, `coAttr0_0`, `coAttr0_1` from `table0` where ( `coAttr0_0`  =  3  ) and ( `coAttr0_1`  =  5  ) order by `coAttr0_0` ;",
+          "readTupleList": []
+        }
+      ],
+      [
+        {
+          "operationID": "0-0-7,194,6",
+          "sql": "COMMIT"
+        }
+      ]
+    ]
+  },
+  {
+    "id": "tidb_36718/res-1705928975-",
+    "database": "tidb",
+    "case": "tidb_36718",
+    "isolation_level": {
+      "0-0-10,79": "REPEATABLE_READ",
+      "0-0-11,54": "REPEATABLE_READ"
+    },
+    "schema": [
+      "create table table0 (pkId integer, pkAttr0 integer, coAttr0_0 integer, primary key(pkAttr0) NONCLUSTERED) ;\n",
+      "alter table table0 add index table0index_pk(pkAttr0);"
+    ],
+    "init_data": [
+      "insert into table0 (pkId,pkAttr0,coAttr0_0) values (\"0\",\"2\",\"13\");\n",
+      "insert into table0 (pkId,pkAttr0,coAttr0_0) values (\"1\",\"9\",\"13\");\n",
+      "insert into table0 (pkId,pkAttr0,coAttr0_0) values (\"2\",\"12\",\"5\");\n",
+      "insert into table0 (pkId,pkAttr0,coAttr0_0) values (\"3\",\"18\",\"13\");\n",
+      "insert into table0 (pkId,pkAttr0,coAttr0_0) values (\"4\",\"24\",\"9\");\n",
+      "insert into table0 (pkId,pkAttr0,coAttr0_0) values (\"5\",\"27\",\"13\");\n",
+      "insert into table0 (pkId,pkAttr0,coAttr0_0) values (\"6\",\"30\",\"9\");\n",
+      "insert into table0 (pkId,pkAttr0,coAttr0_0) values (\"7\",\"35\",\"7\");\n",
+      "insert into table0 (pkId,pkAttr0,coAttr0_0) values (\"8\",\"41\",\"3\");\n",
+      "insert into table0 (pkId,pkAttr0,coAttr0_0) values (\"9\",\"45\",\"13\");\n",
+      "insert into table0 (pkId,pkAttr0,coAttr0_0) values (\"10\",\"53\",\"9\");\n",
+      "insert into table0 (pkId,pkAttr0,coAttr0_0) values (\"11\",\"57\",\"13\");\n",
+      "insert into table0 (pkId,pkAttr0,coAttr0_0) values (\"12\",\"62\",\"5\");\n",
+      "insert into table0 (pkId,pkAttr0,coAttr0_0) values (\"13\",\"66\",\"3\");\n",
+      "insert into table0 (pkId,pkAttr0,coAttr0_0) values (\"14\",\"72\",\"7\");\n",
+      "insert into table0 (pkId,pkAttr0,coAttr0_0) values (\"15\",\"78\",\"1\");\n",
+      "insert into table0 (pkId,pkAttr0,coAttr0_0) values (\"16\",\"84\",\"1\");\n",
+      "insert into table0 (pkId,pkAttr0,coAttr0_0) values (\"17\",\"88\",\"13\");\n",
+      "insert into table0 (pkId,pkAttr0,coAttr0_0) values (\"18\",\"90\",\"9\");\n",
+      "insert into table0 (pkId,pkAttr0,coAttr0_0) values (\"19\",\"96\",\"13\");\n",
+      "insert into table0 (pkId,pkAttr0,coAttr0_0) values (\"20\",\"101\",\"9\");\n",
+      "insert into table0 (pkId,pkAttr0,coAttr0_0) values (\"21\",\"105\",\"13\");\n",
+      "insert into table0 (pkId,pkAttr0,coAttr0_0) values (\"22\",\"113\",\"13\");\n",
+      "insert into table0 (pkId,pkAttr0,coAttr0_0) values (\"23\",\"117\",\"13\");\n",
+      "insert into table0 (pkId,pkAttr0,coAttr0_0) values (\"24\",\"123\",\"5\");\n",
+      "insert into table0 (pkId,pkAttr0,coAttr0_0) values (\"25\",\"128\",\"9\");\n",
+      "insert into table0 (pkId,pkAttr0,coAttr0_0) values (\"26\",\"131\",\"13\");\n",
+      "insert into table0 (pkId,pkAttr0,coAttr0_0) values (\"27\",\"139\",\"1\");\n",
+      "insert into table0 (pkId,pkAttr0,coAttr0_0) values (\"28\",\"143\",\"13\");\n",
+      "insert into table0 (pkId,pkAttr0,coAttr0_0) values (\"29\",\"147\",\"5\");\n",
+      "insert into table0 (pkId,pkAttr0,coAttr0_0) values (\"30\",\"154\",\"13\");\n",
+      "insert into table0 (pkId,pkAttr0,coAttr0_0) values (\"31\",\"157\",\"9\");"
+    ],
+    "operation": [
+      [
+        {
+          "operationID": "0-0-11,54,0",
+          "sql": "start transaction;"
+        }
+      ],
+      [
+        {
+          "operationID": "0-0-10,79,0",
+          "sql": "start transaction;"
+        }
+      ],
+      [
+        {
+          "operationID": "0-0-10,79,1",
+          "sql": "update `table0` set `coAttr0_0` = 13 ;",
+          "writeTupleList": [
+            "0->{\"coAttr0_0\": \"13\"}",
+            "1->{\"coAttr0_0\": \"13\"}",
+            "2->{\"coAttr0_0\": \"13\"}",
+            "3->{\"coAttr0_0\": \"13\"}",
+            "4->{\"coAttr0_0\": \"13\"}",
+            "5->{\"coAttr0_0\": \"13\"}",
+            "6->{\"coAttr0_0\": \"13\"}",
+            "7->{\"coAttr0_0\": \"13\"}",
+            "8->{\"coAttr0_0\": \"13\"}",
+            "9->{\"coAttr0_0\": \"13\"}",
+            "10->{\"coAttr0_0\": \"13\"}",
+            "11->{\"coAttr0_0\": \"13\"}",
+            "12->{\"coAttr0_0\": \"13\"}",
+            "13->{\"coAttr0_0\": \"13\"}",
+            "14->{\"coAttr0_0\": \"13\"}",
+            "15->{\"coAttr0_0\": \"13\"}",
+            "16->{\"coAttr0_0\": \"13\"}",
+            "17->{\"coAttr0_0\": \"13\"}",
+            "18->{\"coAttr0_0\": \"13\"}",
+            "19->{\"coAttr0_0\": \"13\"}",
+            "20->{\"coAttr0_0\": \"13\"}",
+            "21->{\"coAttr0_0\": \"13\"}",
+            "22->{\"coAttr0_0\": \"13\"}",
+            "23->{\"coAttr0_0\": \"13\"}",
+            "24->{\"coAttr0_0\": \"13\"}",
+            "25->{\"coAttr0_0\": \"13\"}",
+            "26->{\"coAttr0_0\": \"13\"}",
+            "27->{\"coAttr0_0\": \"13\"}",
+            "28->{\"coAttr0_0\": \"13\"}",
+            "29->{\"coAttr0_0\": \"13\"}",
+            "30->{\"coAttr0_0\": \"13\"}",
+            "31->{\"coAttr0_0\": \"13\"}"
+          ]
+        }
+      ],
+      [
+        {
+          "operationID": "0-0-10,79,3",
+          "sql": "COMMIT"
+        }
+      ],
+      [
+        {
+          "operationID": "0-0-11,54,2",
+          "sql": "update `table0` set `coAttr0_0` = 13 ;",
+          "writeTupleList": [
+            "0->{\"coAttr0_0\": \"13\"}",
+            "1->{\"coAttr0_0\": \"13\"}",
+            "2->{\"coAttr0_0\": \"13\"}",
+            "3->{\"coAttr0_0\": \"13\"}",
+            "4->{\"coAttr0_0\": \"13\"}",
+            "5->{\"coAttr0_0\": \"13\"}",
+            "6->{\"coAttr0_0\": \"13\"}",
+            "7->{\"coAttr0_0\": \"13\"}",
+            "8->{\"coAttr0_0\": \"13\"}",
+            "9->{\"coAttr0_0\": \"13\"}",
+            "10->{\"coAttr0_0\": \"13\"}",
+            "11->{\"coAttr0_0\": \"13\"}",
+            "12->{\"coAttr0_0\": \"13\"}",
+            "13->{\"coAttr0_0\": \"13\"}",
+            "14->{\"coAttr0_0\": \"13\"}",
+            "15->{\"coAttr0_0\": \"13\"}",
+            "16->{\"coAttr0_0\": \"13\"}",
+            "17->{\"coAttr0_0\": \"13\"}",
+            "18->{\"coAttr0_0\": \"13\"}",
+            "19->{\"coAttr0_0\": \"13\"}",
+            "20->{\"coAttr0_0\": \"13\"}",
+            "21->{\"coAttr0_0\": \"13\"}",
+            "22->{\"coAttr0_0\": \"13\"}",
+            "23->{\"coAttr0_0\": \"13\"}",
+            "24->{\"coAttr0_0\": \"13\"}",
+            "25->{\"coAttr0_0\": \"13\"}",
+            "26->{\"coAttr0_0\": \"13\"}",
+            "27->{\"coAttr0_0\": \"13\"}",
+            "28->{\"coAttr0_0\": \"13\"}",
+            "29->{\"coAttr0_0\": \"13\"}",
+            "30->{\"coAttr0_0\": \"13\"}",
+            "31->{\"coAttr0_0\": \"13\"}"
+          ]
+        }
+      ],
+      [
+        {
+          "operationID": "0-0-11,54,3",
+          "sql": "select `pkId`, `coAttr0_0` from `table0` where ( `pkAttr0`  =  128  )  ;",
+          "readTupleList": [
+            "25->{\"coAttr0_0\": \"9\"}"
+          ]
+        }
+      ],
+      [
+        {
+          "operationID": "0-0-11,54,6",
+          "sql": "COMMIT"
+        }
+      ]
+    ]
+  }
+]

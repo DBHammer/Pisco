@@ -1,0 +1,198 @@
+datasource:
+  platform: tidb
+  url: jdbc:mysql://127.0.0.1:4000/your_database_name?serverTimezone=UTC&useServerPrepStmts=true&cachePrepStmts=true&allowLoadLocalInfile=true
+  username: root
+  password: your_password
+  driverClassName: com.mysql.cj.jdbc.Driver
+
+schema:
+  tableNumber:
+    begin: 1
+    end: 2
+    distribution: UNIFORM
+
+  table:
+    recordNumber:
+      begin: 30
+      end: 50
+      distribution: UNIFORM
+    primaryKey:
+      attributeNumber:
+        begin: 1
+        end: 6
+        distribution: UNIFORM
+      dataType:
+        INTEGER: 100
+        VARCHAR: 0
+    foreignKey:
+      foreignKeyNumber:
+        begin: 0
+        end: 1
+        distribution: UNIFORM
+    attribute:
+      attributeNumber:
+        begin: 1
+        end: 3
+        distribution: UNIFORM
+      dataType:
+        INTEGER: 100
+        VARCHAR: 0
+        DOUBLE: 0
+        DECIMAL: 0
+    indexProbability: 10
+    usePartition: false
+transaction:
+  ifNoise:
+    begin: 0
+    end: 1
+  operationNumber:
+    begin: 3
+    end: 7
+    distribution: UNIFORM
+  operationType:
+    INSERT: 0
+    UPDATE: 30
+    DELETE: 0
+    SELECT: 70
+  select:
+    project:
+      attributeType:
+        RANDOM: 30
+        ALL_KEY: 20
+        ALL_NON_KEY: 50
+      attributeNumber:
+        begin: 1
+        end: 3
+        distribution: UNIFORM
+    where:
+      attributeType:
+        PRIMARY_KEY: 50
+        FOREIGN_KEY: 0
+        NON_KEY: 50
+      predicate:
+        operator:
+          EQUAL_TO: 100
+          GREAT_THEN: 0
+          LESS: 0
+          GREAT_EQUAL: 0
+          LESS_EQUAL: 0
+          NOT_EQUAL: 0
+          LIKE: 0
+          BETWEEN: 0
+    lockMode:
+      SELECT_FOR_UPDATE: 20
+      SELECT_LOCK_IN_SHARE_MODE: 0
+      SELECT: 80
+
+    orderByProbability: 0
+
+
+loader:
+  enableSchemaCustomization: false
+  useLoadInfile: false
+  numberOfTransactionCase: 30
+  numberOfLoader: 13
+  execCountPerLoader: 300
+  execTimePerLoader: 0
+  queryTimeout: 1
+  queryTimeoutUnit: SECONDS
+  visitDistribution: UNIFORM
+  distributionParams: "0,10"
+  serial: true
+  probOfSavepoint: 0
+  trace: true
+  isolation:
+    READ_UNCOMMITTED: 0
+    READ_COMMITTED: 0
+    REPEATABLE_READ: 100
+    SERIALIZABLE: 0
+  slice: 1000
+
+dataFormat:
+  integerLength: 11
+  # varchar
+  varcharLength: 20
+  # decimal precision
+  decimalPrecision: 10
+  # decimal scale
+  decimalScale: 0
+  # double precision
+  doublePrecision: 38
+  # double precision
+  doubleScale: 17
+  # blob
+  blobLength: 255
+
+dataGenerate:
+  partitionAlgoConfig:
+    probOfStatic: 1
+    probOfDynamicExists: 0
+  pkParamConfig:
+    step:
+      begin: 5
+      end: 10
+      distribution: UNIFORM
+  fkParamConfig:
+    distMap:
+      UNIFORM: 100
+      NORMAL: 0
+  attrParamConfig:
+    distMap:
+      UNIFORM: 100
+      NORMAL: 0
+  dataRepoConfig:
+    #>>>>>>>>>>>>> VARCHAR <<<<<<<<<<<<<<#
+    numOfVarchar: 100
+    lenOfVarchar:
+      begin: 5
+      end: 6
+      distribution: UNIFORM
+    charsOfVarchar: "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ123456"
+
+    #>>>>>>>>>>>>> INTEGER <<<<<<<<<<<<<<#
+    numOfInteger: 10
+    seedOfInteger:
+      begin: 0
+      end: 15
+      distribution: UNIFORM
+
+    #>>>>>>>>>>>>> DOUBLE <<<<<<<<<<<<<<#
+    numOfDouble: 10
+    seedOfDouble:
+      begin: 0
+      end: 100000
+      distribution: UNIFORM
+
+    #>>>>>>>>>>>>> DECIMAL <<<<<<<<<<<<<<#
+    numOfDecimal: 100
+    seedOfDecimal:
+      begin: 0
+      end: 100000
+      distribution: UNIFORM
+
+    #>>>>>>>>>>>>> TIMESTAMP <<<<<<<<<<<<<<#
+    numOfTimestamp: 10
+    seedOfTimestamp:
+      begin: 0
+      end: 1000000000
+      distribution: UNIFORM
+
+    #>>>>>>>>>>>>> BLOB <<<<<<<<<<<<<<#
+    numOfBlob: 100
+    lenOfBlob:
+      begin: 10
+      end: 30
+      distribution: UNIFORM
+  partitionStrategy: "FIXED"
+
+
+replay:
+  anaOnly: false
+  serial: true
+  limitedEndValid: true
+  flatten: false
+  simpleFilter: false
+  cascadeDeleteValid: true
+  reduceMutationType:
+    - CROP_ROLLBACK
+    - DIVIDE_REDUCE

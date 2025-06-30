@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration status="off">
+    <appenders>
+        <Console name="Console" target="SYSTEM_OUT">
+            <PatternLayout pattern="[%d{HH:mm:ss.SSS} %-5level %20logger]   %msg%n"/>
+        </Console>
+        <FILE name="Logfile" fileName="log/orca.log">
+            <PatternLayout pattern="[%d{HH:mm:ss.SSS} %-5level %20logger]   %msg%n"/>
+        </FILE>
+        <FILE name="ExceptionFile" fileName="log/orca.exception.log">
+            <PatternLayout pattern="[%d{HH:mm:ss.SSS} %-5level %20logger]   %msg%n"/>
+        </FILE>
+    </appenders>
+    <loggers>
+        <root level="debug">
+            <appender-ref ref="Console"/>
+            <appender-ref ref="Logfile"/>
+        </root>
+        <logger name="util.log.ExceptionLogger" level="debug">
+            <appender-ref ref="ExceptionFile"/>
+        </logger>
+        <Logger name="com.mchange.v2" level="WARN"/>
+    </loggers>
+</configuration>  

@@ -1,0 +1,2 @@
+create table table0 (pkId integer, pkAttr0 integer, pkAttr1 integer, pkAttr2 integer, pkAttr3 integer, coAttr0_0 integer, coAttr0_1 integer, primary key(pkAttr0, pkAttr1, pkAttr2, pkAttr3) NONCLUSTERED) ;
+alter table table0 add index table0index_pk(pkAttr0, pkAttr1, pkAttr2, pkAttr3);

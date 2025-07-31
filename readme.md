@@ -87,4 +87,4 @@ Execute the following command to detect the potential duplicate bug reports unde
 python3 ./main.py
 ```
 
-Then, it would output a ranking list of the potential duplicates, e.g., `ranks is : ['mysql_113228' ... `, while the first one is the most likely duplicate.
+Then, it would output the potential duplicates, e.g., `Most similar report found: tidb_42487`.

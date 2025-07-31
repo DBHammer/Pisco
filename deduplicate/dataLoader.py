@@ -11,6 +11,8 @@ class DataLoader:
         df = pd.read_csv('TXBug-feature.csv')
         X = df.drop(columns=['id', 'Duplicate ID'])
         y = df['id']
+        X = X.fillna('-')
+        y = y.fillna('-')
 
         # 2. 编码所有非数字列
         label_encoders = {}
@@ -54,6 +56,8 @@ class DataLoader:
         for column in new_data.columns:
             if column in label_encoders:
                 le = label_encoders[column]
+                known_classes = set(le.classes_)
+                new_data[column] = new_data[column].apply(lambda x: x if x in known_classes else '-')
                 new_data[column] = le.transform(new_data[column])
 
         # 对新数据进行 One-Hot 编码

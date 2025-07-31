@@ -1,202 +1,255 @@
-Database,Duplicate ID,Isolation Level,Transaction Mode,# Transaction,BEGIN,START TRANSACTION / XA START,START TRANSACTION WITH CONSISTENT SNAPSHOT / START TRANSACTION READ ONLY,SET AUTOCOMMIT=0,COMMIT / XA COMMIT,ROLLBACK / XA ROLLBACK,SELECT,SELECT ... FOR SHARE,SELECT ... FOR UPDATE / FOR UPDATE SKIP LOCKED,INSERT,REPLACE / REPLACE ... SELECT,UPDATE,DELETE,ALTER,CREATE / DROP TABLE / TABLESPACE / TEMPORARY TABLE / SEQUENCE,CHECK TABLE,SHOW,SET,COMMENT ON,RESET,SAVEPOINT / ROLLBACK TO,ANALYZE,ADMIN,EXPLAIN,Config,inject fault,produce specified database state,produce specified data,Cluster,Key,Index,Special Table,System table,CHARSET and COLLATE,Data Constraint,Partition,Deterministic?,Failure Symptom,id
-MySQL,-,unspecified,Pessimistic,2,-,Yes,-,-,Yes,-,-,-,-,Yes,-,-,-,-,-,-,Yes,-,-,-,-,-,-,-,"set binlog_transaction_compression=ON, zstd level is the default 3",-,-,-,Yes,-,-,-,-,-,-,-,Yes,Operation error,MySQL_103672
-MySQL,-,unspecified,Pessimistic,4,Yes,-,-,-,Yes,-,Yes,-,-,Yes,-,-,Yes,-,-,Yes,-,-,-,-,-,-,-,-,ENGINE=InnoDB,-,-,Yes,-,Yes,-,-,-,-,"NOT NULL
+Database,Duplicate ID,Isolation Level,Transaction Mode,# Transaction,BEGIN,START TRANSACTION / XA START,START TRANSACTION WITH CONSISTENT SNAPSHOT / START TRANSACTION READ ONLY,SET AUTOCOMMIT=0,COMMIT / XA COMMIT,ROLLBACK / XA ROLLBACK,SELECT,SELECT ... FOR SHARE,SELECT ... FOR UPDATE / FOR UPDATE SKIP LOCKED,INSERT,REPLACE / REPLACE ... SELECT,UPDATE,DELETE,ALTER,CREATE / DROP TABLE / TABLESPACE / TEMPORARY TABLE / SEQUENCE,CHECK TABLE,SHOW,SET,COMMENT ON,RESET,SAVEPOINT / ROLLBACK TO,ANALYZE,ADMIN,EXPLAIN,Cluster,Key,Index,Data Constraint,Partition,Deterministic?,id
+MySQL,-,unspecified,Pessimistic,2,-,Yes,-,-,Yes,-,-,-,-,Yes,-,-,-,-,-,-,Yes,-,-,-,-,-,-,-,Yes,-,-,-,-,Yes,MySQL_103672
+MySQL,-,unspecified,Pessimistic,4,Yes,-,-,-,Yes,-,Yes,-,-,Yes,-,-,Yes,-,-,Yes,-,-,-,-,-,-,-,-,-,Yes,-,"NOT NULL
 DEFAULT NULL
-AUTO_INCREMENT",-,Yes,Incorrect database state,MySQL_101706
-MySQL,-,REPEATABLE READ,Pessimistic,3,Yes,-,-,-,Yes,-,Yes,-,-,Yes,-,-,-,Yes,-,-,Yes,-,-,-,-,-,-,-,ENGINE=InnoDB,inject crash,FLUSH BINARY LOGS;,-,Yes,Yes,-,-,-,-,NOT NULL,-,"No, need control (inject crash)",Incorrect database state,MySQL_99174
-MySQL,-,REPEATABLE READ,Pessimistic,2,-,-,Yes,-,-,-,Yes,-,-,Yes,-,-,-,-,-,-,-,-,-,-,-,-,-,-,ENGINE=InnoDB,-,-,-,-,Yes,Yes,-,-,Yes,"NOT NULL
+AUTO_INCREMENT",-,Yes,MySQL_101706
+MySQL,-,REPEATABLE READ,Pessimistic,3,Yes,-,-,-,Yes,-,Yes,-,-,Yes,-,-,-,Yes,-,-,Yes,-,-,-,-,-,-,-,Yes,Yes,-,NOT NULL,-,"No, need control (inject crash)",MySQL_99174
+MySQL,-,REPEATABLE READ,Pessimistic,2,-,-,Yes,-,-,-,Yes,-,-,Yes,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,Yes,Yes,"NOT NULL
 DEFAULT NULL
-DEFAULT '0'",-,Yes,Incorrect query result,MySQL_98642
-MySQL,-,READ COMMITTED,Pessimistic,3,-,Yes,-,-,Yes,Yes,Yes,-,-,-,-,-,Yes,-,-,-,-,-,-,-,-,-,-,-,ENGINE=InnoDB,-,-,-,-,Yes,-,-,-,Yes,"NOT NULL
-DEFAULT NULL",-,Yes,Incorrect query result,MySQL_107898
-MySQL,-,unspecified,Pessimistic,3,Yes,-,-,-,Yes,Yes,Yes,-,-,Yes,-,-,-,-,-,-,-,-,-,-,-,-,-,-,ENGINE=InnoDB,-,-,-,-,Yes,-,-,-,Yes,"NOT NULL
+DEFAULT '0'",-,Yes,MySQL_98642
+MySQL,-,READ COMMITTED,Pessimistic,3,-,Yes,-,-,Yes,Yes,Yes,-,-,-,-,-,Yes,-,-,-,-,-,-,-,-,-,-,-,-,Yes,-,"NOT NULL
+DEFAULT NULL",-,Yes,MySQL_107898
+MySQL,-,unspecified,Pessimistic,3,Yes,-,-,-,Yes,Yes,Yes,-,-,Yes,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,Yes,-,"NOT NULL
 DEFAULT NULL
-AUTO_INCREMENT",-,Yes,Incorrect query result,MySQL_107066
-MySQL,-,REPEATABLE READ,Pessimistic,5,Yes,Yes,-,-,-,-,Yes,-,-,-,Yes,-,Yes,-,-,-,Yes,Yes,-,-,-,-,-,-,ENGINE=InnoDB,-,"sleep 3 times
-produce lock wait timeout",Yes,Yes,Yes,-,-,-,-,"NOT NULL
-AUTO_INCREMENT",-,"No, need control (sleep)",Operation error,MySQL_106818
-MySQL,-,unspecified,Pessimistic,1,Yes,-,-,-,-,-,-,-,-,Yes,-,-,-,-,-,-,Yes,-,-,-,-,-,-,-,ENGINE=InnoDB,-,-,Yes,-,Yes,-,-,-,-,"NOT NULL
-AUTO_INCREMENT",-,Yes,Low performance,MySQL_104245
-MySQL,-,unspecified,Pessimistic,4,-,Yes,-,-,Yes,-,Yes,-,-,Yes,-,-,-,-,-,-,Yes,-,-,-,-,-,-,-,"relay_log_info_repository='TABLE'
-ENGINE=InnoDB","inject crash
-kill connection",-,-,Yes,Yes,-,-,-,-,AUTO_INCREMENT,-,"No, need repeat",Incorrect DBMS state,MySQL_102992
-MySQL,-,unspecified,Pessimistic,3,Yes,-,-,-,-,-,-,-,Yes,Yes,-,-,-,-,-,-,Yes,-,-,-,-,-,-,-,set global innodb_deadlock_detect=off;,kill connection,-,-,-,-,-,-,-,-,-,-,Yes,Unnecessary blocking,MySQL_102967
-MySQL,-,REPEATABLE READ,Pessimistic,2,-,-,-,Yes,-,Yes,Yes,-,-,-,-,-,Yes,-,-,-,-,Yes,-,-,-,-,-,-,"adaptive hash index = ON
-ENGINE=InnoDB",-,-,-,-,Yes,-,-,-,-,NOT NULL,-,"No, need repeat",Incorrect query result,MySQL_101667
-MySQL,-,unspecified,Pessimistic,4,-,Yes,-,-,Yes,Yes,Yes,-,Yes,Yes,-,Yes,-,-,-,-,Yes,-,-,-,-,-,-,-,set innodb_rollback_on_timeout=on,-,produce lock wait timeout,Yes,Yes,Yes,-,-,-,-,"NOT NULL
-AUTO_INCREMENT",-,Yes,Operation error,MySQL_101351
-MySQL,-,REPEATABLE READ,Pessimistic,2,Yes,-,-,-,Yes,-,Yes,-,-,-,-,Yes,-,-,-,-,-,-,-,-,-,-,-,-,ENGINE=InnoDB,-,-,Yes,-,-,-,-,-,-,NOT NULL,-,Yes,Incorrect query result,MySQL_100968
-MySQL,-,REPEATABLE READ,Pessimistic,2,Yes,-,-,-,Yes,-,Yes,-,-,-,-,Yes,-,-,-,-,-,-,-,-,-,-,-,-,ENGINE=InnoDB,-,-,Yes,-,-,-,-,-,-,NOT NULL,-,Yes,Incorrect query result,MySQL_100328
-MySQL,-,unspecified,Pessimistic,2,-,Yes,-,-,Yes,-,Yes,-,-,-,-,-,-,-,Yes,-,-,-,-,-,-,-,-,-,use row based bin log format,-,-,-,Yes,-,-,-,-,-,-,-,Yes,Operation error,MySQL_99082
-MySQL,-,unspecified,Pessimistic,4,-,Yes,-,-,Yes,-,-,Yes,-,Yes,-,Yes,-,-,-,-,Yes,-,-,-,-,-,-,-,"ENGINE=InnoDB
-binlog-format=ROW
-",-,-,-,Yes,-,-,-,-,-,-,-,Yes,Operation error,MySQL_99045
-MySQL,-,unspecified,Pessimistic,4,Yes,-,-,-,Yes,-,-,-,-,Yes,-,-,-,Yes,-,-,Yes,-,-,-,-,-,-,-,"set a master and a slave
-| slave_type_conversions | ALL_NON_LOSSY |
-ENGINE=InnoDB",-,-,Yes,Yes,Yes,-,-,-,Yes,"NOT NULL
-AUTO_INCREMENT",-,Yes,Operation error,MySQL_98799
-MySQL,-,unspecified,Pessimistic,2,Yes,-,-,-,-,-,-,-,-,-,-,Yes,-,-,-,-,-,-,-,-,Yes,-,-,-,-,-,set savepoint,-,-,Yes,-,-,-,-,"NOT NULL
-AUTO_INCREMENT",-,Yes,Missing blocking,MySQL_95049
-MySQL,-,READ COMMITTED,Pessimistic,2,Yes,-,-,-,Yes,-,Yes,-,-,Yes,-,-,-,-,-,-,-,-,-,-,-,-,-,-,ENGINE=InnoDB,-,-,-,-,Yes,Yes,-,-,Yes,"NOT NULL
-AUTO_INCREMENT",-,Yes,Incorrect query result,MySQL_94338
-MySQL,-,unspecified,Pessimistic,3,Yes,-,-,-,Yes,-,-,-,-,Yes,-,-,-,-,-,-,Yes,-,-,-,-,-,-,-,set binlog_format=statement,-,flush tables with read lock,-,Yes,Yes,-,-,-,-,"NOT NULL
-AUTO_INCREMENT",-,Yes,Incorrect DBMS state,MySQL_93572
-MySQL,-,unspecified,Pessimistic,1,-,Yes,-,-,-,Yes,-,-,-,Yes,-,-,-,-,-,-,-,Yes,-,-,-,-,-,-,"SET GLOBAL general_log=ON;
-drop table mysql.general_log;",-,-,-,-,-,-,-,-,-,-,Yes,Yes,Assertion failure,MySQL_92993
-MySQL,-,unspecified,Pessimistic,3,-,Yes,Yes,-,Yes,-,Yes,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,Yes,Incorrect DBMS state,MySQL_92558
-MySQL,-,unspecified,Pessimistic,3,-,Yes,-,-,Yes,-,Yes,-,-,-,-,Yes,-,-,-,-,-,-,-,-,-,-,-,-,SET GLOBAL innodb_monitor_enable = 'trx%comm%';,-,-,-,-,-,-,-,-,-,-,-,Yes,Incorrect DBMS state,MySQL_92364
-MySQL,-,unspecified,Pessimistic,2,Yes,-,-,-,-,-,Yes,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,"system timezone UTC
-set session time_zone='-09:00'; ",-,-,-,-,-,-,-,Yes,-,-,-,Yes,Incorrect DBMS state,MySQL_91837
-MySQL,-,unspecified,Pessimistic,3,Yes,-,-,-,-,-,Yes,-,-,Yes,-,-,-,-,-,-,Yes,-,-,-,-,-,-,-,"ENGINE=InnoDB
-set global innodb_table_locks=1;",-,-,Yes,-,Yes,Yes,-,-,Yes,"NOT NULL
-DEFAULT NULL",-,Yes,Incorrect DBMS state,MySQL_91743
-MySQL,-,unspecified,Pessimistic,4,Yes,Yes,-,-,Yes,-,-,-,-,Yes,-,-,-,-,-,-,-,Yes,-,-,-,-,-,-,set global super_read_only=off;,-,-,-,-,Yes,-,-,-,-,-,-,Yes,Missing error,MySQL_91646
-MySQL,-,unspecified,Pessimistic,3,Yes,-,-,-,-,Yes,-,-,-,Yes,-,-,-,-,Yes,-,Yes,-,-,-,-,-,-,-,ENGINE=InnoDB,-,-,-,Yes,Yes,-,Yes,-,-,AUTO_INCREMENT,-,Yes,Operation error,MySQL_90980
-MySQL,-,unspecified,Pessimistic,2,Yes,-,-,-,Yes,-,Yes,-,-,Yes,-,-,-,-,-,-,Yes,-,-,-,-,-,-,-,"ENGINE=InnoDB
-datadir and log_bin should be in different partitions from tmpdir
-GTID is enabled",-,Fill up tmpdir partition (e.g. dd command),-,Yes,Yes,-,-,-,-,-,-,Yes,Incorrect DBMS state,MySQL_89272
-MySQL,-,SERIALIZABLE,Pessimistic,2,Yes,-,-,-,Yes,-,Yes,-,-,Yes,-,-,-,-,-,-,Yes,-,-,-,-,-,-,-,query_cache_type=1,-,FLUSH STATUS,-,-,-,-,-,-,-,-,-,Yes,Missing blocking,MySQL_100293
-MySQL,-,REPEATABLE READ,Pessimistic,2,Yes,-,-,-,-,-,-,-,-,Yes,-,-,-,-,-,-,-,-,-,-,-,-,-,-,ENGINE=InnoDB,-,-,Yes,-,Yes,-,-,-,-,-,-,Yes,Unnecessary blocking,MySQL_93806
-MySQL,-,READ COMMITTED,Pessimistic,2,Yes,-,-,-,Yes,-,Yes,-,Yes,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,set index_condition_pushdown=ON;,-,-,-,-,Yes,Yes,-,-,-,-,-,Yes,Unnecessary blocking,MySQL_102722
-MySQL,-,READ COMMITTED,Pessimistic,2,Yes,-,-,-,-,-,-,-,-,-,-,Yes,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,Yes,-,Yes,Yes,-,-,-,AUTO_INCREMENT,Yes,Yes,Unnecessary blocking,MySQL_90987
+AUTO_INCREMENT",-,Yes,MySQL_107066
+MySQL,-,REPEATABLE READ,Pessimistic,5,Yes,Yes,-,-,-,-,Yes,-,-,-,Yes,-,Yes,-,-,-,Yes,Yes,-,-,-,-,-,-,Yes,Yes,-,"NOT NULL
+AUTO_INCREMENT",-,"No, need control (sleep)",MySQL_106818
+MySQL,-,unspecified,Pessimistic,1,Yes,-,-,-,-,-,-,-,-,Yes,-,-,-,-,-,-,Yes,-,-,-,-,-,-,-,-,Yes,-,"NOT NULL
+AUTO_INCREMENT",-,Yes,MySQL_104245
+MySQL,-,unspecified,Pessimistic,4,-,Yes,-,-,Yes,-,Yes,-,-,Yes,-,-,-,-,-,-,Yes,-,-,-,-,-,-,-,Yes,Yes,-,AUTO_INCREMENT,-,"No, need repeat",MySQL_102992
+MySQL,-,unspecified,Pessimistic,3,Yes,-,-,-,-,-,-,-,Yes,Yes,-,-,-,-,-,-,Yes,-,-,-,-,-,-,-,-,-,-,-,-,Yes,MySQL_102967
+MySQL,-,REPEATABLE READ,Pessimistic,2,-,-,-,Yes,-,Yes,Yes,-,-,-,-,-,Yes,-,-,-,-,Yes,-,-,-,-,-,-,-,Yes,-,NOT NULL,-,"No, need repeat",MySQL_101667
+MySQL,-,unspecified,Pessimistic,4,-,Yes,-,-,Yes,Yes,Yes,-,Yes,Yes,-,Yes,-,-,-,-,Yes,-,-,-,-,-,-,-,Yes,Yes,-,"NOT NULL
+AUTO_INCREMENT",-,Yes,MySQL_101351
+MySQL,-,REPEATABLE READ,Pessimistic,2,Yes,-,-,-,Yes,-,Yes,-,-,-,-,Yes,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,NOT NULL,-,Yes,MySQL_100968
+MySQL,-,REPEATABLE READ,Pessimistic,2,Yes,-,-,-,Yes,-,Yes,-,-,-,-,Yes,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,NOT NULL,-,Yes,MySQL_100328
+MySQL,-,unspecified,Pessimistic,2,-,Yes,-,-,Yes,-,Yes,-,-,-,-,-,-,-,Yes,-,-,-,-,-,-,-,-,-,Yes,-,-,-,-,Yes,MySQL_99082
+MySQL,-,unspecified,Pessimistic,4,-,Yes,-,-,Yes,-,-,Yes,-,Yes,-,Yes,-,-,-,-,Yes,-,-,-,-,-,-,-,Yes,-,-,-,-,Yes,MySQL_99045
+MySQL,-,unspecified,Pessimistic,4,Yes,-,-,-,Yes,-,-,-,-,Yes,-,-,-,Yes,-,-,Yes,-,-,-,-,-,-,-,Yes,Yes,-,"NOT NULL
+AUTO_INCREMENT",-,Yes,MySQL_98799
+MySQL,-,unspecified,Pessimistic,2,Yes,-,-,-,-,-,-,-,-,-,-,Yes,-,-,-,-,-,-,-,-,Yes,-,-,-,-,Yes,-,"NOT NULL
+AUTO_INCREMENT",-,Yes,MySQL_95049
+MySQL,-,READ COMMITTED,Pessimistic,2,Yes,-,-,-,Yes,-,Yes,-,-,Yes,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,Yes,Yes,"NOT NULL
+AUTO_INCREMENT",-,Yes,MySQL_94338
+MySQL,-,unspecified,Pessimistic,3,Yes,-,-,-,Yes,-,-,-,-,Yes,-,-,-,-,-,-,Yes,-,-,-,-,-,-,-,Yes,Yes,-,"NOT NULL
+AUTO_INCREMENT",-,Yes,MySQL_93572
+MySQL,-,unspecified,Pessimistic,1,-,Yes,-,-,-,Yes,-,-,-,Yes,-,-,-,-,-,-,-,Yes,-,-,-,-,-,-,-,-,-,-,Yes,Yes,MySQL_92993
+MySQL,-,unspecified,Pessimistic,3,-,Yes,Yes,-,Yes,-,Yes,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,Yes,MySQL_92558
+MySQL,-,unspecified,Pessimistic,3,-,Yes,-,-,Yes,-,Yes,-,-,-,-,Yes,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,Yes,MySQL_92364
+MySQL,-,unspecified,Pessimistic,2,Yes,-,-,-,-,-,Yes,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,Yes,MySQL_91837
+MySQL,-,unspecified,Pessimistic,3,Yes,-,-,-,-,-,Yes,-,-,Yes,-,-,-,-,-,-,Yes,-,-,-,-,-,-,-,-,Yes,Yes,"NOT NULL
+DEFAULT NULL",-,Yes,MySQL_91743
+MySQL,-,unspecified,Pessimistic,4,Yes,Yes,-,-,Yes,-,-,-,-,Yes,-,-,-,-,-,-,-,Yes,-,-,-,-,-,-,-,Yes,-,-,-,Yes,MySQL_91646
+MySQL,-,unspecified,Pessimistic,3,Yes,-,-,-,-,Yes,-,-,-,Yes,-,-,-,-,Yes,-,Yes,-,-,-,-,-,-,-,Yes,Yes,-,AUTO_INCREMENT,-,Yes,MySQL_90980
+MySQL,-,unspecified,Pessimistic,2,Yes,-,-,-,Yes,-,Yes,-,-,Yes,-,-,-,-,-,-,Yes,-,-,-,-,-,-,-,Yes,Yes,-,-,-,Yes,MySQL_89272
+MySQL,-,SERIALIZABLE,Pessimistic,2,Yes,-,-,-,Yes,-,Yes,-,-,Yes,-,-,-,-,-,-,Yes,-,-,-,-,-,-,-,-,-,-,-,-,Yes,MySQL_100293
+MySQL,-,REPEATABLE READ,Pessimistic,2,Yes,-,-,-,-,-,-,-,-,Yes,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,Yes,-,-,-,Yes,MySQL_93806
+MySQL,-,READ COMMITTED,Pessimistic,2,Yes,-,-,-,Yes,-,Yes,-,Yes,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,Yes,Yes,-,-,Yes,MySQL_102722
+MySQL,-,READ COMMITTED,Pessimistic,2,Yes,-,-,-,-,-,-,-,-,-,-,Yes,-,-,-,-,-,-,-,-,-,-,-,-,-,Yes,Yes,AUTO_INCREMENT,Yes,Yes,MySQL_90987
 MySQL,-,"READ UNCOMMITTED
-READ COMMITTED",Pessimistic,3,Yes,-,-,-,Yes,-,Yes,-,-,-,-,Yes,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,Yes,Incorrect database state,MySQL_104833
-MariaDB,-,unspecified,Pessimistic,1,Yes,-,-,-,Yes,-,-,-,-,Yes,-,-,Yes,-,-,-,-,-,-,-,-,-,-,-,ENGINE=InnoDB,-,-,-,-,Yes,-,-,-,-,-,-,Yes,Unnecessary blocking,MariaDB_MDEV-16675
-MariaDB,-,unspecified,Pessimistic,2,-,Yes,-,-,-,Yes,-,-,-,-,-,Yes,-,-,-,-,-,-,-,-,-,-,-,-,ENGINE=InnoDB,-,-,-,-,-,Yes,Yes,-,-,-,-,Yes,Assertion failure,MariaDB_MDEV-16106
-MariaDB,-,unspecified,Pessimistic,2,Yes,-,-,-,Yes,-,Yes,-,-,Yes,-,-,-,-,-,-,-,Yes,-,-,-,-,-,-,"ENGINE=InnoDB 
-WITH SYSTEM VERSIONING
-some row are invisible",-,select sleep(1);,-,-,-,-,-,-,-,DEFAULT NULL,-,Yes,Incorrect DBMS state,MariaDB_MDEV-16024
-MariaDB,-,unspecified,Pessimistic,1,Yes,-,-,-,Yes,-,-,-,-,Yes,-,-,-,-,-,-,-,-,-,-,Yes,-,-,-,"encrypt-tmp-files=ON
-binlog-format=row
-ENGINE=InnoDB",-,set savepoint,Yes,-,-,-,-,-,-,-,-,Yes,Crash,MariaDB_MDEV-14868
-MariaDB,-,unspecified,Pessimistic,2,Yes,-,-,-,Yes,-,Yes,-,-,Yes,-,-,-,-,-,-,-,Yes,-,-,-,-,-,-,"ENGINE=InnoDB 
-WITH SYSTEM VERSIONING
-some row are invisible",-,select sleep(1);,-,-,-,-,-,-,-,DEFAULT NULL,-,Yes,Incorrect DBMS state,MariaDB_19535
-MariaDB,-,unspecified,Pessimistic,2,-,Yes,-,Yes,Yes,-,-,-,-,Yes,-,-,-,-,-,-,-,-,-,-,-,-,-,-,ENGINE=InnoDB,-,-,Yes,Yes,-,-,-,-,-,-,-,"No, need repeat",Unexpected error,MariaDB_MDEV-24463
-MariaDB,-,READ COMMITTED,Pessimistic,1,Yes,-,-,-,-,-,-,-,-,-,-,-,Yes,-,-,-,Yes,-,-,-,-,-,-,-,"ENGINE=INNODB
-SET GLOBAL INNODB_STATUS_OUTPUT_LOCKS = 'ON'",-,-,Yes,-,-,Yes,-,-,Yes,"NOT NULL
-DEFAULT NULL",-,Yes,Low performance,MariaDB_MDEV-24224
-MariaDB,-,REPEATABLE READ,Pessimistic,1,-,-,Yes,-,Yes,-,Yes,-,-,Yes,-,-,-,-,Yes,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,Yes,Unexpected error,MariaDB_MDEV-24083
-MariaDB,-,REPEATABLE READ,Pessimistic,1,-,-,Yes,-,Yes,-,-,-,-,-,-,Yes,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,Yes,-,Yes,-,-,"NOT NULL
-DEFAULT 0",-,Yes,Unexpected error,MariaDB_MDEV-24082
-MariaDB,-,unspecified,Pessimistic,2,-,Yes,-,Yes,-,Yes,-,-,-,Yes,-,-,-,-,-,-,-,-,-,-,-,-,-,-,"ENGINE=InnoDB
-SET wsrep_trx_fragment_size = 1;",-,-,Yes,Yes,Yes,-,-,-,-,AUTO_INCREMENT,-,Yes,Missing error,MariaDB_MDEV-23608
-MariaDB,-,REPEATABLE READ,Pessimistic,3,-,Yes,-,-,-,-,Yes,-,-,Yes,-,-,-,Yes,-,-,-,Yes,-,-,-,-,-,-,ENGINE=InnoDB,-,-,-,-,-,-,-,-,-,-,-,Yes,Incorrect query result,MariaDB_MDEV-21650
-MariaDB,-,unspecified,Pessimistic,1,Yes,-,-,-,-,Yes,-,-,-,Yes,-,-,-,-,-,-,-,-,-,-,-,-,-,-,ENGINE=InnoDB,-,-,Yes,-,-,Yes,-,-,-,NOT NULL,-,Yes,Assertion failure,MariaDB_MDEV-21516
-MariaDB,-,unspecified,Pessimistic,2,Yes,-,-,-,Yes,-,-,-,-,Yes,-,-,-,-,Yes,-,Yes,-,-,-,-,-,-,-,"ENGINE=InnoDB
-set @@session.binlog_direct_non_transactional_updates=1;
-set @@binlog_format=mixed",-,-,-,Yes,Yes,-,-,-,-,"NOT NULL
-DEFAULT NULL",-,Yes,Operation error,MariaDB_MDEV-26833
-MariaDB,-,REPEATABLE READ,Pessimistic,3,-,Yes,-,-,-,-,Yes,-,-,Yes,-,-,-,Yes,-,-,-,Yes,-,-,-,-,-,-,ENGINE=InnoDB,-,-,-,-,-,-,-,-,-,-,-,Yes,Incorrect query result,MariaDB_26642
-MariaDB,-,unspecified,Pessimistic,2,-,-,-,Yes,-,Yes,Yes,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,ENGINE=columnstore,-,-,-,-,-,-,-,-,-,-,-,Yes,Incorrect DBMS state,MariaDB_MCOL-4766
-MariaDB,-,unspecified,Pessimistic,2,-,Yes,-,-,-,Yes,Yes,-,-,-,Yes,-,-,-,-,-,-,-,-,-,-,-,-,-,WITH SYSTEM VERSIONING,-,-,Yes,-,Yes,-,-,-,-,-,Yes,Yes,Incorrect DBMS state,MariaDB_MDEV-25546
-MariaDB,-,unspecified,Pessimistic,1,-,-,Yes,-,-,Yes,-,-,-,-,-,Yes,-,-,-,-,-,-,-,-,-,-,-,-,ENGINE=InnoDB,-,-,-,-,-,-,Yes,-,-,-,-,Yes,Crash,MariaDB_MDEV-25457
-MariaDB,-,unspecified,Pessimistic,2,-,Yes,-,-,-,-,-,-,-,Yes,-,-,-,Yes,Yes,-,-,-,-,-,Yes,-,-,-,"SET sql_mode='';
-SET unique_checks=0;
-SET foreign_key_checks=0;",-,set savepoint,-,-,Yes,Yes,-,-,-,-,-,Yes,Assertion failure,MariaDB_MDEV-25297
+READ COMMITTED",Pessimistic,3,Yes,-,-,-,Yes,-,Yes,-,-,-,-,Yes,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,Yes,MySQL_104833
+MariaDB,-,unspecified,Pessimistic,1,Yes,-,-,-,Yes,-,-,-,-,Yes,-,-,Yes,-,-,-,-,-,-,-,-,-,-,-,-,Yes,-,-,-,Yes,MariaDB_MDEV-16675
+MariaDB,-,unspecified,Pessimistic,2,-,Yes,-,-,-,Yes,-,-,-,-,-,Yes,-,-,-,-,-,-,-,-,-,-,-,-,-,-,Yes,-,-,Yes,MariaDB_MDEV-16106
+MariaDB,-,unspecified,Pessimistic,2,Yes,-,-,-,Yes,-,Yes,-,-,Yes,-,-,-,-,-,-,-,Yes,-,-,-,-,-,-,-,-,-,DEFAULT NULL,-,Yes,MariaDB_MDEV-16024
+MariaDB,-,unspecified,Pessimistic,1,Yes,-,-,-,Yes,-,-,-,-,Yes,-,-,-,-,-,-,-,-,-,-,Yes,-,-,-,-,-,-,-,-,Yes,MariaDB_MDEV-14868
+MariaDB,-,unspecified,Pessimistic,2,Yes,-,-,-,Yes,-,Yes,-,-,Yes,-,-,-,-,-,-,-,Yes,-,-,-,-,-,-,-,-,-,DEFAULT NULL,-,Yes,MariaDB_19535
+MariaDB,-,unspecified,Pessimistic,2,-,Yes,-,Yes,Yes,-,-,-,-,Yes,-,-,-,-,-,-,-,-,-,-,-,-,-,-,Yes,-,-,-,-,"No, need repeat",MariaDB_MDEV-24463
+MariaDB,-,READ COMMITTED,Pessimistic,1,Yes,-,-,-,-,-,-,-,-,-,-,-,Yes,-,-,-,Yes,-,-,-,-,-,-,-,-,-,Yes,"NOT NULL
+DEFAULT NULL",-,Yes,MariaDB_MDEV-24224
+MariaDB,-,REPEATABLE READ,Pessimistic,1,-,-,Yes,-,Yes,-,Yes,-,-,Yes,-,-,-,-,Yes,-,-,-,-,-,-,-,-,-,-,-,-,-,-,Yes,MariaDB_MDEV-24083
+MariaDB,-,REPEATABLE READ,Pessimistic,1,-,-,Yes,-,Yes,-,-,-,-,-,-,Yes,-,-,-,-,-,-,-,-,-,-,-,-,-,Yes,-,"NOT NULL
+DEFAULT 0",-,Yes,MariaDB_MDEV-24082
+MariaDB,-,unspecified,Pessimistic,2,-,Yes,-,Yes,-,Yes,-,-,-,Yes,-,-,-,-,-,-,-,-,-,-,-,-,-,-,Yes,Yes,-,AUTO_INCREMENT,-,Yes,MariaDB_MDEV-23608
+MariaDB,-,REPEATABLE READ,Pessimistic,3,-,Yes,-,-,-,-,Yes,-,-,Yes,-,-,-,Yes,-,-,-,Yes,-,-,-,-,-,-,-,-,-,-,-,Yes,MariaDB_MDEV-21650
+MariaDB,-,unspecified,Pessimistic,1,Yes,-,-,-,-,Yes,-,-,-,Yes,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,Yes,NOT NULL,-,Yes,MariaDB_MDEV-21516
+MariaDB,-,unspecified,Pessimistic,2,Yes,-,-,-,Yes,-,-,-,-,Yes,-,-,-,-,Yes,-,Yes,-,-,-,-,-,-,-,Yes,Yes,-,"NOT NULL
+DEFAULT NULL",-,Yes,MariaDB_MDEV-26833
+MariaDB,-,REPEATABLE READ,Pessimistic,3,-,Yes,-,-,-,-,Yes,-,-,Yes,-,-,-,Yes,-,-,-,Yes,-,-,-,-,-,-,-,-,-,-,-,Yes,MariaDB_26642
+MariaDB,-,unspecified,Pessimistic,2,-,-,-,Yes,-,Yes,Yes,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,Yes,MariaDB_MCOL-4766
+MariaDB,-,unspecified,Pessimistic,2,-,Yes,-,-,-,Yes,Yes,-,-,-,Yes,-,-,-,-,-,-,-,-,-,-,-,-,-,-,Yes,-,-,Yes,Yes,MariaDB_MDEV-25546
+MariaDB,-,unspecified,Pessimistic,1,-,-,Yes,-,-,Yes,-,-,-,-,-,Yes,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,Yes,MariaDB_MDEV-25457
+MariaDB,-,unspecified,Pessimistic,2,-,Yes,-,-,-,-,-,-,-,Yes,-,-,-,Yes,Yes,-,-,-,-,-,Yes,-,-,-,-,Yes,Yes,-,-,Yes,MariaDB_MDEV-25297
 MariaDB,-,"READ COMMITTED
-REPEATABLE READ",Pessimistic,3,-,-,-,Yes,-,-,Yes,Yes,-,-,-,Yes,-,-,-,-,Yes,-,-,-,-,-,-,-,"ENGINE=InnoDB
-create procedure with if block",-,-,-,-,Yes,-,-,-,Yes,"NOT NULL
+REPEATABLE READ",Pessimistic,3,-,-,-,Yes,-,-,Yes,Yes,-,-,-,Yes,-,-,-,-,Yes,-,-,-,-,-,-,-,-,Yes,-,"NOT NULL
 DEFAULT NULL
-AUTO_INCREMENT",-,Yes,Unnecessary blocking,MariaDB_MDEV-18044
-MariaDB,-,unspecified,Pessimistic,3,-,Yes,-,-,Yes,-,Yes,-,-,-,-,-,-,-,Yes,-,-,-,-,-,-,-,-,-,ENGINE=InnoDB,-,FLUSH TABLES,-,-,-,-,-,-,-,-,-,Yes,Unexpected error,MariaDB_MDEV-24545
-MariaDB,-,unspecified,Pessimistic,3,Yes,-,-,-,-,-,-,-,-,-,-,Yes,-,-,-,-,Yes,-,-,-,-,-,-,-,-,-,-,Yes,-,Yes,-,-,-,-,-,-,Yes,Incorrect DBMS state,MariaDB_MDEV-29187
-MariaDB,-,unspecified,Pessimistic,2,-,Yes,-,-,-,Yes,Yes,-,-,-,-,Yes,-,Yes,-,-,-,-,-,-,-,-,-,-,ENGINE=MyISAM;,-,-,-,-,-,-,-,-,-,-,-,Yes,Assertion failure,MariaDB_MDEV-28944
-MariaDB,-,ALL,Pessimistic,2,Yes,-,-,-,Yes,-,-,-,Yes,-,-,Yes,Yes,-,-,-,-,-,-,-,-,-,-,-,-,-,-,Yes,-,Yes,-,-,-,-,-,-,Yes,Incorrect database state,MariaDB_MDEV-27992
-MariaDB,-,unspecified,Pessimistic,3,-,Yes,-,-,Yes,Yes,Yes,-,-,Yes,-,-,-,-,-,-,-,-,-,-,-,-,-,-,ENGINE=InnoDB,-,-,-,-,Yes,-,-,-,Yes,"NOT NULL
-DEFAULT NULL",-,Yes,Incorrect query result,MariaDB_MDEV-29123
-TiDB,-,unspecified,Pessimistic,2,Yes,-,-,-,-,Yes,Yes,-,-,-,-,Yes,-,-,-,-,-,Yes,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,Yes,Incorrect database state,TiDB_36581
-TiDB,-,unspecified,Pessimistic,2,Yes,-,-,-,-,Yes,Yes,-,-,Yes,-,Yes,-,-,-,-,-,-,-,-,-,-,-,-,ENGINE=InnoDB,-,-,Yes,-,Yes,Yes,-,-,Yes,NOT NULL,-,Yes,Missing blocking,TiDB_36438
-TiDB,-,unspecified,Pessimistic,1,Yes,-,-,-,Yes,-,-,-,-,-,-,Yes,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,Yes,Yes,-,-,-,-,-,Yes,Low performance,TiDB_36235
-TiDB,-,unspecified,Pessimistic,3,Yes,-,-,-,Yes,Yes,Yes,-,Yes,-,-,Yes,-,-,-,-,-,Yes,-,-,-,-,-,-,-,-,produce lock wait timeout,-,-,Yes,-,-,-,-,-,-,Yes,Low performance,TiDB_35682
-TiDB,-,READ COMMITTED,Pessimistic,2,Yes,-,-,-,-,-,-,-,Yes,Yes,-,-,-,Yes,-,-,-,-,-,-,-,-,-,-,-,-,-,Yes,-,Yes,-,-,-,-,NOT NULL,-,Yes,Operation error,TiDB_34978
-TiDB,-,REPEATABLE READ,Pessimistic,2,-,Yes,-,-,Yes,-,Yes,-,-,-,-,-,Yes,-,-,-,-,-,-,-,-,-,-,-,"using unistore
-ENGINE=InnoDB",-,-,-,-,Yes,Yes,-,-,Yes,"NOT NULL
-DEFAULT NULL",-,Yes,Incorrect query result,TiDB_30361
-TiDB,-,REPEATABLE READ,Pessimistic,2,Yes,-,-,-,Yes,-,Yes,-,-,-,-,Yes,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,Yes,Incorrect query result,TiDB_28212
-TiDB,-,unspecified,Pessimistic,3,Yes,-,-,-,-,-,-,-,-,-,-,Yes,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,Yes,-,-,-,-,-,-,-,-,Yes,Missing error,TiDB_28095
-TiDB,-,unspecified,Pessimistic,1,Yes,-,-,-,Yes,-,-,-,-,Yes,-,-,Yes,-,-,-,-,-,-,-,-,-,-,-,-,-,-,Yes,-,Yes,-,-,-,-,NOT NULL,-,Yes,Incorrect DBMS state,TiDB_27564
-TiDB,-,unspecified,Pessimistic,2,Yes,-,-,-,-,-,Yes,-,Yes,-,-,Yes,-,-,-,-,-,Yes,-,-,-,-,-,-,-,-,do sleep(1),Yes,-,Yes,-,-,-,-,-,-,Yes,Incorrect query result,TiDB_25176
-TiDB,-,unspecified,Optimistic,1,Yes,-,-,-,Yes,-,Yes,-,-,Yes,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,Yes,-,Yes,Yes,-,-,-,-,-,Yes,Incorrect query result,TiDB_24195
-TiDB,-,unspecified,Pessimistic,2,Yes,-,-,-,-,-,Yes,-,Yes,-,-,Yes,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,Yes,-,-,-,-,-,-,Yes,Unexpected error,TiDB_22345
-TiDB,-,unspecified,Pessimistic,2,Yes,-,-,-,Yes,-,-,-,-,-,-,Yes,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,Yes,-,-,-,-,-,-,Yes,Unnecessary blocking,TiDB_21688
-TiDB,-,REPEATABLE READ,Pessimistic,2,Yes,-,-,-,Yes,-,Yes,-,-,Yes,-,Yes,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,Yes,-,-,-,-,-,-,Yes,Missing error,TiDB_21506
-TiDB,-,unspecified,Pessimistic,2,Yes,-,-,-,-,-,-,-,Yes,-,-,-,-,Yes,-,-,-,-,-,-,-,-,-,-,PREPARE ...; EXECUTE ...;,-,-,-,-,Yes,-,-,-,-,-,-,Yes,Incorrect query result,TiDB_34289
-TiDB,-,unspecified,Pessimistic,3,Yes,-,-,-,-,-,-,-,-,-,-,Yes,-,-,-,-,-,-,-,-,-,-,-,-,-,kill connection,-,-,-,-,-,-,-,-,-,-,Yes,Missing blocking,TiDB_31203
-TiDB,-,unspecified,Optimistic,2,Yes,-,-,-,Yes,-,-,-,-,Yes,-,Yes,Yes,-,-,-,-,-,-,-,-,-,Yes,-,-,-,-,-,-,Yes,Yes,-,-,-,-,-,Yes,Assertion failure,TiDB_30410
-TiDB,-,unspecified,Pessimistic,2,Yes,-,-,-,-,-,-,-,Yes,-,-,Yes,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,Yes,Unnecessarily long blocking,TiDB_29160
-TiDB,-,unspecified,Pessimistic,1,Yes,-,-,-,Yes,-,-,-,Yes,Yes,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,Yes,Yes,-,-,-,-,Yes,Yes,Unnecessary blocking,TiDB_28073
-TiDB,-,unspecified,Both,3,-,-,-,Yes,Yes,-,-,-,Yes,Yes,-,Yes,-,-,-,-,-,Yes,-,-,-,-,-,-,-,-,-,-,-,Yes,Yes,-,-,-,-,Yes,Yes,Missing error,TiDB_27156
-TiDB,-,unspecified,Pessimistic,3,Yes,-,-,-,-,-,Yes,-,-,-,-,Yes,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,Yes,-,-,-,-,-,Yes,Yes,Incorrect DBMS state,TiDB_26973
-TiDB,-,unspecified,Pessimistic,2,Yes,-,-,-,-,-,-,-,Yes,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,Yes,-,-,-,-,-,Yes,Yes,Missing blocking,TiDB_26251
-TiDB,-,unspecified,Pessimistic,2,Yes,-,-,-,Yes,-,Yes,-,-,Yes,-,-,-,Yes,-,-,-,-,-,-,-,-,-,-,set global tidb_enable_amend_pessimistic_txn=ON;,-,-,-,-,-,-,-,-,-,DEFAULT NULL,-,Yes,Incorrect database state,TiDB_26203
-TiDB,-,unspecified,Pessimistic,1,Yes,-,-,-,-,-,Yes,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,set tidb_snapshot=now();,-,-,-,-,-,-,-,Yes,-,-,-,Yes,Incorrect DBMS state,TiDB_23380
-TiDB,-,unspecified,Pessimistic,1,Yes,-,-,-,-,-,-,-,-,-,-,Yes,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,Yes,Yes,-,-,-,"NOT NULL
-DEFAULT '759.3040284831991'",-,Yes,Assertion failure,TiDB_23753
-TiDB,-,unspecified,Pessimistic,2,Yes,-,-,-,Yes,-,-,-,-,-,-,Yes,-,Yes,-,-,-,-,-,-,-,-,-,-,using async-commit,-,-,-,-,Yes,-,-,-,-,-,-,"No, need control",Missing error,TiDB_23363
-TiDB,-,unspecified,Pessimistic,1,Yes,-,-,-,-,-,-,-,-,-,-,Yes,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,Yes,Yes,-,-,-,-,-,Yes,Assertion failure,TiDB_23179
-TiDB,-,unspecified,Pessimistic,1,-,-,Yes,-,-,-,-,-,-,Yes,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,Yes,Missing error,TiDB_22658
-TiDB,-,unspecified,Pessimistic,1,Yes,-,-,-,-,-,-,-,Yes,-,-,-,-,Yes,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,Yes,Assertion failure,TiDB_21722
-TiDB,-,ALL,Pessimistic,2,Yes,-,-,-,Yes,-,Yes,-,-,-,-,Yes,-,-,-,-,-,-,-,-,-,-,-,-,-,-,Enable failpoint,-,-,Yes,-,-,-,-,-,-,Yes,Unnecessary blocking,TiDB_21658
-TiDB,-,unspecified,Pessimistic,2,Yes,-,-,-,-,-,-,-,Yes,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,Yes,Yes,-,-,-,-,Yes,Yes,Missing blocking,TiDB_21618
-TiDB,-,ALL,Pessimistic,2,Yes,-,-,-,-,-,Yes,-,-,-,-,Yes,-,Yes,-,-,-,-,-,-,-,-,-,Yes,-,-,-,-,-,Yes,Yes,-,-,-,-,-,Yes,Incorrect query result,TiDB_21498
-TiDB,-,unspecified,Pessimistic,3,Yes,-,-,-,Yes,-,Yes,-,-,Yes,-,-,-,Yes,-,-,-,-,-,-,-,-,-,-,set @@global.tidb_enable_change_column_type=true;,-,-,-,-,Yes,-,-,-,-,-,-,Yes,Missing error,TiDB_21470
-TiDB,-,unspecified,Pessimistic,2,Yes,-,-,-,Yes,-,Yes,-,-,-,-,Yes,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,Yes,-,-,-,-,DEFAULT NULL,-,Yes,Incorrect query result,TiDB_21447
-TiDB,-,unspecified,Pessimistic,2,-,-,-,Yes,Yes,-,Yes,-,-,-,-,Yes,-,-,-,-,-,Yes,-,-,-,-,-,-,set @@tidb_disable_txn_auto_retry=0;,-,-,-,-,-,-,-,-,-,-,-,Yes,Assertion failure,TiDB_21284
-TiDB,-,unspecified,Pessimistic,2,Yes,-,-,-,Yes,-,-,-,-,-,-,Yes,-,Yes,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,Yes,-,-,-,-,-,-,Yes,Unexpected error,TiDB_21274
-TiDB,-,unspecified,Pessimistic,2,Yes,-,-,-,Yes,-,-,-,Yes,Yes,-,Yes,-,-,-,-,-,-,-,-,-,-,-,-,set session tidb_enable_clustered_index = 0;,-,-,-,-,Yes,-,-,-,-,-,-,Yes,Unexpected error,TiDB_21218
-TiDB,-,READ COMMITTED,Pessimistic,2,Yes,-,-,-,-,-,Yes,-,-,-,-,Yes,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,Yes,Yes,-,-,-,NOT NULL,-,Yes,Incorrect query result,TiDB_21151
-TiDB,-,unspecified,Pessimistic,2,Yes,-,-,-,Yes,-,-,-,-,-,-,Yes,-,-,Yes,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,Yes,Unexpected error,TiDB_20975
-TiDB,-,unspecified,Pessimistic,2,Yes,-,-,-,Yes,-,-,-,-,-,-,Yes,-,Yes,-,-,-,-,-,-,-,-,Yes,-,-,-,-,-,-,Yes,-,-,-,-,AUTO_INCREMENT,-,Yes,Assertion failure,TiDB_20910
-TiDB,-,unspecified,Pessimistic,2,Yes,-,-,-,Yes,-,Yes,-,-,-,-,Yes,-,Yes,Yes,-,-,-,-,-,-,-,Yes,-,Set ENGINE=InnoDB,-,-,-,-,Yes,-,-,-,Yes,"NOT NULL
-DEFAULT NULL",-,"No, need repeat",Assertion failure,TiDB_20899
-TiDB,-,unspecified,Pessimistic,2,Yes,-,-,-,Yes,-,Yes,-,-,Yes,-,-,Yes,-,-,-,-,-,-,-,-,-,-,-,Set ENGINE=InnoDB,-,-,-,-,Yes,Yes,-,-,Yes,NOT NULL,-,Yes,Incorrect database state,TiDB_20881
-TiDB,-,unspecified,Pessimistic,2,Yes,-,-,-,Yes,-,-,-,-,Yes,-,Yes,Yes,Yes,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,Yes,-,-,-,-,-,-,Yes,Crash,TiDB_20773
-TiDB,-,REPEATABLE READ,Pessimistic,3,Yes,-,-,-,Yes,-,-,-,-,Yes,-,Yes,Yes,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,Yes,-,-,-,-,-,-,Yes,Missing blocking,TiDB_20692
-TiDB,-,unspecified,Pessimistic,2,Yes,-,-,-,-,-,-,-,-,Yes,-,-,Yes,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,Yes,-,-,-,-,-,-,Yes,Unexpected error,TiDB_20535
-TiDB,-,unspecified,Pessimistic,2,Yes,-,-,-,Yes,-,Yes,-,-,-,-,Yes,-,-,-,-,-,-,-,-,-,-,Yes,-,set @@tidb_enable_clustered_index = 1;,-,-,-,-,Yes,-,-,-,-,-,-,Yes,Incorrect database state,TiDB_20002
-TiDB,-,unspecified,Pessimistic,2,Yes,-,-,-,Yes,-,Yes,-,-,Yes,-,Yes,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,Yes,-,Yes,-,-,-,-,-,Yes,Yes,Incorrect database state,TiDB_19585
-TiDB,-,unspecified,Pessimistic,2,Yes,-,-,-,Yes,-,-,-,-,Yes,Yes,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,Yes,-,Yes,-,-,-,-,-,-,Yes,Unexpected error,TiDB_19194
-TiDB,-,unspecified,Pessimistic,2,Yes,-,-,-,Yes,-,Yes,-,-,Yes,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,Yes,-,-,-,-,-,-,Yes,Incorrect query result,TiDB_19136
-TiDB,-,unspecified,Pessimistic,2,Yes,-,-,-,Yes,-,Yes,-,-,Yes,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,Yes,Yes,-,-,-,-,-,Yes,Incorrect query result,TiDB_19104
-TiDB,-,unspecified,Pessimistic,3,Yes,-,-,-,Yes,-,Yes,-,-,Yes,Yes,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,Yes,-,Yes,-,-,-,Yes,-,-,Yes,Missing error,TiDB_19063
-TiDB,-,unspecified,Pessimistic,2,Yes,-,-,-,Yes,-,Yes,-,-,Yes,-,Yes,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,Yes,-,Yes,-,-,-,-,-,-,Yes,Missing error,TiDB_18958
-TiDB,-,unspecified,Pessimistic,1,Yes,-,-,-,-,Yes,-,-,-,Yes,-,Yes,Yes,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,Yes,-,-,-,-,"NOT NULL
-DEFAULT NULL",-,Yes,Unexpected error,TiDB_18956
-TiDB,-,unspecified,Pessimistic,2,Yes,-,-,-,-,-,-,-,Yes,Yes,-,-,-,-,-,-,-,-,-,-,-,-,-,-,"set @@session.tidb_isolation_read_engines = ""tiflash"";",-,create tiflash replica,-,-,Yes,-,-,-,-,NOT NULL,-,Yes,Missing blocking,TiDB_17851
-TiDB,-,unspecified,Pessimistic,2,-,Yes,-,-,-,-,-,-,-,-,-,Yes,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,Yes,-,-,-,-,"NOT NULL
-AUTO_INCREMENT",-,Yes,Wrong error message,TiDB_17797
-TiDB,-,unspecified,Pessimistic,2,Yes,-,-,-,-,Yes,Yes,-,-,Yes,-,-,-,-,-,-,-,Yes,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,Yes,Incorrect DBMS state,TiDB_8393
-TiDB,-,READ COMMITTED,Pessimistic,2,Yes,-,-,-,-,-,-,-,Yes,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,Yes,-,-,-,-,-,-,Yes,Unnecessary blocking,TiDB_37653
-TiDB,-,unspecified,Pessimistic,1,Yes,-,-,-,Yes,-,Yes,-,-,-,-,Yes,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,Yes,Yes,-,-,Yes,"NOT NULL
-DEFAULT ...",-,Yes,Incorrect query result,TiDB_37925
-TiDB,-,ALL,Pessimistic,3,Yes,-,-,-,Yes,-,-,-,Yes,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,Yes,Missing error,TiDB_39851
-TiDB,-,ALL,Pessimistic,2,Yes,-,-,-,Yes,-,-,-,-,-,-,Yes,Yes,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,Yes,Unexpected error,TiDB_39972
-TiDB,-,ALL,Pessimistic,2,Yes,-,-,-,Yes,-,-,-,-,-,Yes,-,Yes,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,Yes,Wrong error message,TiDB_39976
-TiDB,-,ALL,Pessimistic,2,Yes,-,-,-,Yes,-,-,-,Yes,-,-,-,Yes,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,Yes,Unexpected error,TiDB_39977
-SQLite,-,unspecified,Pessimistic,2,Yes,-,-,-,Yes,-,-,-,-,-,-,-,-,-,Yes,-,-,-,-,-,-,-,-,-,-,-,-,Yes,-,-,-,-,-,-,-,-,Yes,Unexpected error,SQLite_b5ca442af9
-SQLite,-,unspecified,Pessimistic,2,Yes,-,-,-,Yes,-,Yes,-,-,-,-,-,-,Yes,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,Yes,Incorrect DBMS state,SQLite_596d059af7
-SQLite,-,unspecified,Pessimistic,1,Yes,-,-,-,-,-,-,-,-,Yes,-,Yes,-,-,Yes,-,-,-,-,-,-,-,-,-,-,-,-,Yes,-,-,-,Yes,-,-,-,-,Yes,Assertion failure,SQLite_167b2aac34
-SQLite,-,unspecified,Pessimistic,1,Yes,-,-,-,-,-,-,-,-,Yes,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,Yes,-,-,-,Yes,-,-,-,-,Yes,Operation error,SQLite_745f1abcdc
-SQLite,-,unspecified,Pessimistic,1,Yes,-,-,-,-,-,-,-,-,Yes,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,Yes,-,-,-,Yes,-,-,-,-,Yes,Operation error,SQLite_e258f008ce
-SQLite,-,SERIALIZABLE,Pessimistic,3,Yes,-,-,-,Yes,-,Yes,-,-,Yes,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,fflush(stdout),-,-,-,-,-,-,-,-,-,"No, need repeat",Incorrect database state,SQLite_810dc80388
-CockroachDB,-,SERIALIZABLE,Optimistic,1,Yes,-,-,-,Yes,-,-,-,-,-,-,-,-,Yes,Yes,-,-,-,-,-,-,-,-,-,-,-,-,-,-,Yes,-,-,-,-,-,-,Yes,Unexpected error,CockroachDB_83593
-CockroachDB,-,SERIALIZABLE,Optimistic,1,Yes,-,-,-,Yes,-,-,-,-,-,-,-,-,-,Yes,-,-,-,Yes,-,-,-,-,-,SET use_declarative_schema_changer = 'unsafe_always';,-,-,-,-,-,-,-,-,-,-,-,Yes,Unexpected error,CockroachDB_81069
-CockroachDB,-,SERIALIZABLE,Optimistic,1,Yes,-,-,-,Yes,-,-,-,-,-,-,-,-,Yes,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,NOT NULL,-,Yes,Unexpected error,CockroachDB_79784
-CockroachDB,-,SERIALIZABLE,Optimistic,2,Yes,-,-,-,Yes,-,Yes,-,-,-,-,-,-,Yes,Yes,-,-,-,-,-,-,-,-,-,set cluster setting jobs.debug.pausepoints = 'schemachanger.before.exec';,-,-,-,-,Yes,-,-,-,-,-,-,Yes,Assertion failure,CockroachDB_79613
-CockroachDB,-,SERIALIZABLE,Optimistic,1,Yes,-,-,-,Yes,-,-,-,-,-,-,-,-,Yes,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,Yes,-,-,-,-,NOT NULL,-,Yes,Unexpected error,CockroachDB_55184
-CockroachDB,-,SERIALIZABLE,Optimistic,1,Yes,-,-,-,-,-,-,-,-,Yes,-,Yes,-,Yes,Yes,-,-,-,-,-,-,-,-,-,-,-,-,-,-,Yes,Yes,-,-,-,"NOT NULL
-DEFAULT 0",-,Yes,Unexpected error,CockroachDB_46276
-CockroachDB,-,SERIALIZABLE,Optimistic,1,Yes,-,-,-,Yes,-,-,-,-,-,-,-,-,Yes,Yes,-,-,-,-,-,-,-,-,-,-,-,-,-,-,Yes,-,-,-,-,-,-,Yes,Unexpected error,CockroachDB_22868
-CockroachDB,-,SERIALIZABLE,Optimistic,2,Yes,-,-,-,-,-,Yes,-,Yes,-,-,Yes,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,Yes,Yes,-,-,-,-,-,Yes,Missing blocking,CockroachDB_88251
-CockroachDB,-,SERIALIZABLE,Optimistic,1,Yes,-,-,-,-,-,-,-,-,Yes,-,-,-,-,-,-,-,-,-,-,-,Yes,-,-,-,-,-,-,-,-,-,-,-,-,-,-,Yes,DBMS hang,CockroachDB_93372
-PostgreSQL,-,unspecified,Unspecified,2,-,Yes,-,-,-,-,Yes,-,-,-,-,-,-,-,Yes,-,-,-,-,-,-,-,-,-,-,inject crash,-,-,-,-,-,-,-,-,-,-,Yes,Unexpected error,PostgreSQL_16771
-PostgreSQL,-,SERIALIZABLE,Optimistic,5,Yes,-,Yes,-,Yes,-,Yes,-,-,-,-,-,-,Yes,-,-,-,Yes,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,Yes,Assertion failure,PostgreSQL_17116
-PostgreSQL,-,unspecified,Unspecified,2,Yes,-,-,-,-,-,-,-,Yes,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,"generated always as identity
-NOT NULL",-,Yes,Incorrect query result,PostgreSQL_16676
-PostgreSQL,-,SERIALIZABLE,Optimistic,1,Yes,-,-,-,Yes,-,Yes,-,-,-,-,-,-,-,-,-,-,-,-,Yes,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,Yes,Assertion failure,PostgreSQL_17385
-PostgreSQL,-,unspecified,Unspecified,2,Yes,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,Yes,-,-,-,-,-,-,-,-,-,-,-,-,-,-,Yes,Unexpected error,PostgreSQL_15946
-PostgreSQL,-,SERIALIZABLE,Optimistic,2,Yes,-,-,-,Yes,-,Yes,-,-,Yes,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,Yes,-,Yes,-,-,-,-,-,-,Yes,Unexpected error,PostgreSQL_15875
-MySQL,-,REPEATABLE READ,Pessimistic,2,Yes,-,-,-,Yes,-,Yes,-,-,-,-,Yes,-,-,-,-,-,-,-,-,-,-,-,-,ENGINE=InnoDB,-,-,,-,-,-,-,-,-,-,-,Yes,Incorrect query result,MySQL_113228
-TiDB,-,REPEATABLE READ,Pessimistic,2,Yes,-,-,-,Yes,-,Yes,-,-,-,-,Yes,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,,-,-,-,-,-,-,-,-,Yes,Incorrect query result,TiDB_36718
-TiDB,-,REPEATABLE READ,Pessimistic,2,Yes,-,-,-,Yes,-,Yes,-,-,-,-,Yes,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,,-,-,-,-,-,-,-,-,Yes,Incorrect query result,TiDB_42487
+AUTO_INCREMENT",-,Yes,MariaDB_MDEV-18044
+MariaDB,-,unspecified,Pessimistic,3,-,Yes,-,-,Yes,-,Yes,-,-,-,-,-,-,-,Yes,-,-,-,-,-,-,-,-,-,-,-,-,-,-,Yes,MariaDB_MDEV-24545
+MariaDB,-,unspecified,Pessimistic,3,Yes,-,-,-,-,-,-,-,-,-,-,Yes,-,-,-,-,Yes,-,-,-,-,-,-,-,-,Yes,-,-,-,Yes,MariaDB_MDEV-29187
+MariaDB,-,unspecified,Pessimistic,2,-,Yes,-,-,-,Yes,Yes,-,-,-,-,Yes,-,Yes,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,Yes,MariaDB_MDEV-28944
+MariaDB,-,ALL,Pessimistic,2,Yes,-,-,-,Yes,-,-,-,Yes,-,-,Yes,Yes,-,-,-,-,-,-,-,-,-,-,-,-,Yes,-,-,-,Yes,MariaDB_MDEV-27992
+MariaDB,-,unspecified,Pessimistic,3,-,Yes,-,-,Yes,Yes,Yes,-,-,Yes,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,Yes,-,"NOT NULL
+DEFAULT NULL",-,Yes,MariaDB_MDEV-29123
+TiDB,-,unspecified,Pessimistic,2,Yes,-,-,-,-,Yes,Yes,-,-,-,-,Yes,-,-,-,-,-,Yes,-,-,-,-,-,-,-,-,-,-,-,Yes,TiDB_36581
+TiDB,-,unspecified,Pessimistic,2,Yes,-,-,-,-,Yes,Yes,-,-,Yes,-,Yes,-,-,-,-,-,-,-,-,-,-,-,-,-,Yes,Yes,NOT NULL,-,Yes,TiDB_36438
+TiDB,-,unspecified,Pessimistic,1,Yes,-,-,-,Yes,-,-,-,-,-,-,Yes,-,-,-,-,-,-,-,-,-,-,-,-,-,Yes,Yes,-,-,Yes,TiDB_36235
+TiDB,-,unspecified,Pessimistic,3,Yes,-,-,-,Yes,Yes,Yes,-,Yes,-,-,Yes,-,-,-,-,-,Yes,-,-,-,-,-,-,-,Yes,-,-,-,Yes,TiDB_35682
+TiDB,-,READ COMMITTED,Pessimistic,2,Yes,-,-,-,-,-,-,-,Yes,Yes,-,-,-,Yes,-,-,-,-,-,-,-,-,-,-,-,Yes,-,NOT NULL,-,Yes,TiDB_34978
+TiDB,-,REPEATABLE READ,Pessimistic,2,-,Yes,-,-,Yes,-,Yes,-,-,-,-,-,Yes,-,-,-,-,-,-,-,-,-,-,-,-,Yes,Yes,"NOT NULL
+DEFAULT NULL",-,Yes,TiDB_30361
+TiDB,-,REPEATABLE READ,Pessimistic,2,Yes,-,-,-,Yes,-,Yes,-,-,-,-,Yes,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,Yes,TiDB_28212
+TiDB,-,unspecified,Pessimistic,3,Yes,-,-,-,-,-,-,-,-,-,-,Yes,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,Yes,TiDB_28095
+TiDB,-,unspecified,Pessimistic,1,Yes,-,-,-,Yes,-,-,-,-,Yes,-,-,Yes,-,-,-,-,-,-,-,-,-,-,-,-,Yes,-,NOT NULL,-,Yes,TiDB_27564
+TiDB,-,unspecified,Pessimistic,2,Yes,-,-,-,-,-,Yes,-,Yes,-,-,Yes,-,-,-,-,-,Yes,-,-,-,-,-,-,-,Yes,-,-,-,Yes,TiDB_25176
+TiDB,-,unspecified,Optimistic,1,Yes,-,-,-,Yes,-,Yes,-,-,Yes,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,Yes,Yes,-,-,Yes,TiDB_24195
+TiDB,-,unspecified,Pessimistic,2,Yes,-,-,-,-,-,Yes,-,Yes,-,-,Yes,-,-,-,-,-,-,-,-,-,-,-,-,-,Yes,-,-,-,Yes,TiDB_22345
+TiDB,-,unspecified,Pessimistic,2,Yes,-,-,-,Yes,-,-,-,-,-,-,Yes,-,-,-,-,-,-,-,-,-,-,-,-,-,Yes,-,-,-,Yes,TiDB_21688
+TiDB,-,REPEATABLE READ,Pessimistic,2,Yes,-,-,-,Yes,-,Yes,-,-,Yes,-,Yes,-,-,-,-,-,-,-,-,-,-,-,-,-,Yes,-,-,-,Yes,TiDB_21506
+TiDB,-,unspecified,Pessimistic,2,Yes,-,-,-,-,-,-,-,Yes,-,-,-,-,Yes,-,-,-,-,-,-,-,-,-,-,-,Yes,-,-,-,Yes,TiDB_34289
+TiDB,-,unspecified,Pessimistic,3,Yes,-,-,-,-,-,-,-,-,-,-,Yes,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,Yes,TiDB_31203
+TiDB,-,unspecified,Optimistic,2,Yes,-,-,-,Yes,-,-,-,-,Yes,-,Yes,Yes,-,-,-,-,-,-,-,-,-,Yes,-,-,Yes,Yes,-,-,Yes,TiDB_30410
+TiDB,-,unspecified,Pessimistic,2,Yes,-,-,-,-,-,-,-,Yes,-,-,Yes,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,Yes,TiDB_29160
+TiDB,-,unspecified,Pessimistic,1,Yes,-,-,-,Yes,-,-,-,Yes,Yes,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,Yes,Yes,-,Yes,Yes,TiDB_28073
+TiDB,-,unspecified,Both,3,-,-,-,Yes,Yes,-,-,-,Yes,Yes,-,Yes,-,-,-,-,-,Yes,-,-,-,-,-,-,-,Yes,Yes,-,Yes,Yes,TiDB_27156
+TiDB,-,unspecified,Pessimistic,3,Yes,-,-,-,-,-,Yes,-,-,-,-,Yes,-,-,-,-,-,-,-,-,-,-,-,-,-,Yes,-,-,Yes,Yes,TiDB_26973
+TiDB,-,unspecified,Pessimistic,2,Yes,-,-,-,-,-,-,-,Yes,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,Yes,-,-,Yes,Yes,TiDB_26251
+TiDB,-,unspecified,Pessimistic,2,Yes,-,-,-,Yes,-,Yes,-,-,Yes,-,-,-,Yes,-,-,-,-,-,-,-,-,-,-,-,-,-,DEFAULT NULL,-,Yes,TiDB_26203
+TiDB,-,unspecified,Pessimistic,1,Yes,-,-,-,-,-,Yes,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,Yes,TiDB_23380
+TiDB,-,unspecified,Pessimistic,1,Yes,-,-,-,-,-,-,-,-,-,-,Yes,-,-,-,-,-,-,-,-,-,-,-,-,-,Yes,Yes,"NOT NULL
+DEFAULT '759.3040284831991'",-,Yes,TiDB_23753
+TiDB,-,unspecified,Pessimistic,2,Yes,-,-,-,Yes,-,-,-,-,-,-,Yes,-,Yes,-,-,-,-,-,-,-,-,-,-,-,Yes,-,-,-,"No, need control",TiDB_23363
+TiDB,-,unspecified,Pessimistic,1,Yes,-,-,-,-,-,-,-,-,-,-,Yes,-,-,-,-,-,-,-,-,-,-,-,-,-,Yes,Yes,-,-,Yes,TiDB_23179
+TiDB,-,unspecified,Pessimistic,1,-,-,Yes,-,-,-,-,-,-,Yes,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,Yes,TiDB_22658
+TiDB,-,unspecified,Pessimistic,1,Yes,-,-,-,-,-,-,-,Yes,-,-,-,-,Yes,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,Yes,TiDB_21722
+TiDB,-,ALL,Pessimistic,2,Yes,-,-,-,Yes,-,Yes,-,-,-,-,Yes,-,-,-,-,-,-,-,-,-,-,-,-,-,Yes,-,-,-,Yes,TiDB_21658
+TiDB,-,unspecified,Pessimistic,2,Yes,-,-,-,-,-,-,-,Yes,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,Yes,Yes,-,Yes,Yes,TiDB_21618
+TiDB,-,ALL,Pessimistic,2,Yes,-,-,-,-,-,Yes,-,-,-,-,Yes,-,Yes,-,-,-,-,-,-,-,-,-,Yes,-,Yes,Yes,-,-,Yes,TiDB_21498
+TiDB,-,unspecified,Pessimistic,3,Yes,-,-,-,Yes,-,Yes,-,-,Yes,-,-,-,Yes,-,-,-,-,-,-,-,-,-,-,-,Yes,-,-,-,Yes,TiDB_21470
+TiDB,-,unspecified,Pessimistic,2,Yes,-,-,-,Yes,-,Yes,-,-,-,-,Yes,-,-,-,-,-,-,-,-,-,-,-,-,-,Yes,-,DEFAULT NULL,-,Yes,TiDB_21447
+TiDB,-,unspecified,Pessimistic,2,-,-,-,Yes,Yes,-,Yes,-,-,-,-,Yes,-,-,-,-,-,Yes,-,-,-,-,-,-,-,-,-,-,-,Yes,TiDB_21284
+TiDB,-,unspecified,Pessimistic,2,Yes,-,-,-,Yes,-,-,-,-,-,-,Yes,-,Yes,-,-,-,-,-,-,-,-,-,-,-,Yes,-,-,-,Yes,TiDB_21274
+TiDB,-,unspecified,Pessimistic,2,Yes,-,-,-,Yes,-,-,-,Yes,Yes,-,Yes,-,-,-,-,-,-,-,-,-,-,-,-,-,Yes,-,-,-,Yes,TiDB_21218
+TiDB,-,READ COMMITTED,Pessimistic,2,Yes,-,-,-,-,-,Yes,-,-,-,-,Yes,-,-,-,-,-,-,-,-,-,-,-,-,-,Yes,Yes,NOT NULL,-,Yes,TiDB_21151
+TiDB,-,unspecified,Pessimistic,2,Yes,-,-,-,Yes,-,-,-,-,-,-,Yes,-,-,Yes,-,-,-,-,-,-,-,-,-,-,-,-,-,-,Yes,TiDB_20975
+TiDB,-,unspecified,Pessimistic,2,Yes,-,-,-,Yes,-,-,-,-,-,-,Yes,-,Yes,-,-,-,-,-,-,-,-,Yes,-,-,Yes,-,AUTO_INCREMENT,-,Yes,TiDB_20910
+TiDB,-,unspecified,Pessimistic,2,Yes,-,-,-,Yes,-,Yes,-,-,-,-,Yes,-,Yes,Yes,-,-,-,-,-,-,-,Yes,-,-,Yes,-,"NOT NULL
+DEFAULT NULL",-,"No, need repeat",TiDB_20899
+TiDB,-,unspecified,Pessimistic,2,Yes,-,-,-,Yes,-,Yes,-,-,Yes,-,-,Yes,-,-,-,-,-,-,-,-,-,-,-,-,Yes,Yes,NOT NULL,-,Yes,TiDB_20881
+TiDB,-,unspecified,Pessimistic,2,Yes,-,-,-,Yes,-,-,-,-,Yes,-,Yes,Yes,Yes,-,-,-,-,-,-,-,-,-,-,-,Yes,-,-,-,Yes,TiDB_20773
+TiDB,-,REPEATABLE READ,Pessimistic,3,Yes,-,-,-,Yes,-,-,-,-,Yes,-,Yes,Yes,-,-,-,-,-,-,-,-,-,-,-,-,Yes,-,-,-,Yes,TiDB_20692
+TiDB,-,unspecified,Pessimistic,2,Yes,-,-,-,-,-,-,-,-,Yes,-,-,Yes,-,-,-,-,-,-,-,-,-,-,-,-,Yes,-,-,-,Yes,TiDB_20535
+TiDB,-,unspecified,Pessimistic,2,Yes,-,-,-,Yes,-,Yes,-,-,-,-,Yes,-,-,-,-,-,-,-,-,-,-,Yes,-,-,Yes,-,-,-,Yes,TiDB_20002
+TiDB,-,unspecified,Pessimistic,2,Yes,-,-,-,Yes,-,Yes,-,-,Yes,-,Yes,-,-,-,-,-,-,-,-,-,-,-,-,-,Yes,-,-,Yes,Yes,TiDB_19585
+TiDB,-,unspecified,Pessimistic,2,Yes,-,-,-,Yes,-,-,-,-,Yes,Yes,-,-,-,-,-,-,-,-,-,-,-,-,-,-,Yes,-,-,-,Yes,TiDB_19194
+TiDB,-,unspecified,Pessimistic,2,Yes,-,-,-,Yes,-,Yes,-,-,Yes,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,Yes,-,-,-,Yes,TiDB_19136
+TiDB,-,unspecified,Pessimistic,2,Yes,-,-,-,Yes,-,Yes,-,-,Yes,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,Yes,Yes,-,-,Yes,TiDB_19104
+TiDB,-,unspecified,Pessimistic,3,Yes,-,-,-,Yes,-,Yes,-,-,Yes,Yes,-,-,-,-,-,-,-,-,-,-,-,-,-,-,Yes,-,-,-,Yes,TiDB_19063
+TiDB,-,unspecified,Pessimistic,2,Yes,-,-,-,Yes,-,Yes,-,-,Yes,-,Yes,-,-,-,-,-,-,-,-,-,-,-,-,-,Yes,-,-,-,Yes,TiDB_18958
+TiDB,-,unspecified,Pessimistic,1,Yes,-,-,-,-,Yes,-,-,-,Yes,-,Yes,Yes,-,-,-,-,-,-,-,-,-,-,-,-,Yes,-,"NOT NULL
+DEFAULT NULL",-,Yes,TiDB_18956
+TiDB,-,unspecified,Pessimistic,2,Yes,-,-,-,-,-,-,-,Yes,Yes,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,Yes,-,NOT NULL,-,Yes,TiDB_17851
+TiDB,-,unspecified,Pessimistic,2,-,Yes,-,-,-,-,-,-,-,-,-,Yes,-,-,-,-,-,-,-,-,-,-,-,-,-,Yes,-,"NOT NULL
+AUTO_INCREMENT",-,Yes,TiDB_17797
+TiDB,-,unspecified,Pessimistic,2,Yes,-,-,-,-,Yes,Yes,-,-,Yes,-,-,-,-,-,-,-,Yes,-,-,-,-,-,-,-,-,-,-,-,Yes,TiDB_8393
+TiDB,-,READ COMMITTED,Pessimistic,2,Yes,-,-,-,-,-,-,-,Yes,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,Yes,-,-,-,Yes,TiDB_37653
+TiDB,-,unspecified,Pessimistic,1,Yes,-,-,-,Yes,-,Yes,-,-,-,-,Yes,-,-,-,-,-,-,-,-,-,-,-,-,-,Yes,Yes,"NOT NULL
+DEFAULT ...",-,Yes,TiDB_37925
+TiDB,-,ALL,Pessimistic,3,Yes,-,-,-,Yes,-,-,-,Yes,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,Yes,TiDB_39851
+TiDB,-,ALL,Pessimistic,2,Yes,-,-,-,Yes,-,-,-,-,-,-,Yes,Yes,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,Yes,TiDB_39972
+TiDB,-,ALL,Pessimistic,2,Yes,-,-,-,Yes,-,-,-,-,-,Yes,-,Yes,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,Yes,TiDB_39976
+TiDB,-,ALL,Pessimistic,2,Yes,-,-,-,Yes,-,-,-,Yes,-,-,-,Yes,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,Yes,TiDB_39977
+SQLite,-,unspecified,Pessimistic,2,Yes,-,-,-,Yes,-,-,-,-,-,-,-,-,-,Yes,-,-,-,-,-,-,-,-,-,-,-,-,-,-,Yes,SQLite_b5ca442af9
+SQLite,-,unspecified,Pessimistic,2,Yes,-,-,-,Yes,-,Yes,-,-,-,-,-,-,Yes,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,Yes,SQLite_596d059af7
+SQLite,-,unspecified,Pessimistic,1,Yes,-,-,-,-,-,-,-,-,Yes,-,Yes,-,-,Yes,-,-,-,-,-,-,-,-,-,-,-,-,-,-,Yes,SQLite_167b2aac34
+SQLite,-,unspecified,Pessimistic,1,Yes,-,-,-,-,-,-,-,-,Yes,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,Yes,SQLite_745f1abcdc
+SQLite,-,unspecified,Pessimistic,1,Yes,-,-,-,-,-,-,-,-,Yes,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,Yes,SQLite_e258f008ce
+SQLite,-,SERIALIZABLE,Pessimistic,3,Yes,-,-,-,Yes,-,Yes,-,-,Yes,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,"No, need repeat",SQLite_810dc80388
+CockroachDB,-,SERIALIZABLE,Optimistic,1,Yes,-,-,-,Yes,-,-,-,-,-,-,-,-,Yes,Yes,-,-,-,-,-,-,-,-,-,-,Yes,-,-,-,Yes,CockroachDB_83593
+CockroachDB,-,SERIALIZABLE,Optimistic,1,Yes,-,-,-,Yes,-,-,-,-,-,-,-,-,-,Yes,-,-,-,Yes,-,-,-,-,-,-,-,-,-,-,Yes,CockroachDB_81069
+CockroachDB,-,SERIALIZABLE,Optimistic,1,Yes,-,-,-,Yes,-,-,-,-,-,-,-,-,Yes,-,-,-,-,-,-,-,-,-,-,-,-,-,NOT NULL,-,Yes,CockroachDB_79784
+CockroachDB,-,SERIALIZABLE,Optimistic,2,Yes,-,-,-,Yes,-,Yes,-,-,-,-,-,-,Yes,Yes,-,-,-,-,-,-,-,-,-,-,Yes,-,-,-,Yes,CockroachDB_79613
+CockroachDB,-,SERIALIZABLE,Optimistic,1,Yes,-,-,-,Yes,-,-,-,-,-,-,-,-,Yes,-,-,-,-,-,-,-,-,-,-,-,Yes,-,NOT NULL,-,Yes,CockroachDB_55184
+CockroachDB,-,SERIALIZABLE,Optimistic,1,Yes,-,-,-,-,-,-,-,-,Yes,-,Yes,-,Yes,Yes,-,-,-,-,-,-,-,-,-,-,Yes,Yes,"NOT NULL
+DEFAULT 0",-,Yes,CockroachDB_46276
+CockroachDB,-,SERIALIZABLE,Optimistic,1,Yes,-,-,-,Yes,-,-,-,-,-,-,-,-,Yes,Yes,-,-,-,-,-,-,-,-,-,-,Yes,-,-,-,Yes,CockroachDB_22868
+CockroachDB,-,SERIALIZABLE,Optimistic,2,Yes,-,-,-,-,-,Yes,-,Yes,-,-,Yes,-,-,-,-,-,-,-,-,-,-,-,-,-,Yes,Yes,-,-,Yes,CockroachDB_88251
+CockroachDB,-,SERIALIZABLE,Optimistic,1,Yes,-,-,-,-,-,-,-,-,Yes,-,-,-,-,-,-,-,-,-,-,-,Yes,-,-,-,-,-,-,-,Yes,CockroachDB_93372
+PostgreSQL,-,unspecified,Unspecified,2,-,Yes,-,-,-,-,Yes,-,-,-,-,-,-,-,Yes,-,-,-,-,-,-,-,-,-,-,-,-,-,-,Yes,PostgreSQL_16771
+PostgreSQL,-,SERIALIZABLE,Optimistic,5,Yes,-,Yes,-,Yes,-,Yes,-,-,-,-,-,-,Yes,-,-,-,Yes,-,-,-,-,-,-,-,-,-,-,-,Yes,PostgreSQL_17116
+PostgreSQL,-,unspecified,Unspecified,2,Yes,-,-,-,-,-,-,-,Yes,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,"generated always as identity
+NOT NULL",-,Yes,PostgreSQL_16676
+PostgreSQL,-,SERIALIZABLE,Optimistic,1,Yes,-,-,-,Yes,-,Yes,-,-,-,-,-,-,-,-,-,-,-,-,Yes,-,-,-,-,-,-,-,-,-,Yes,PostgreSQL_17385
+PostgreSQL,-,unspecified,Unspecified,2,Yes,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,Yes,-,-,-,-,-,-,-,Yes,PostgreSQL_15946
+PostgreSQL,-,SERIALIZABLE,Optimistic,2,Yes,-,-,-,Yes,-,Yes,-,-,Yes,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,Yes,-,-,-,Yes,PostgreSQL_15875
+MySQL,-,REPEATABLE READ,Pessimistic,2,Yes,-,-,-,Yes,-,Yes,-,-,-,-,Yes,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,Yes,MySQL_113228
+TiDB,-,REPEATABLE READ,Pessimistic,2,Yes,-,-,-,Yes,-,Yes,-,-,-,-,Yes,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,Yes,TiDB_36718
+TiDB,-,REPEATABLE READ,Pessimistic,2,Yes,-,-,-,Yes,-,Yes,-,-,-,-,Yes,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,Yes,TiDB_42487
+MySQL,,REPEATABLE READ,Pessimistic,1,Yes,Yes,-,Yes,Yes,-,-,Yes,-,Yes,,,,,,,,,,,,,,,,,,,,,MySQL_117735
+MySQL,,REPEATABLE READ,Pessimistic,1,Yes,Yes,-,-,Yes,Yes,-,-,-,-,,,,,,,,,,,,,,,,,,,,,MySQL_110584
+MySQL,,REPEATABLE READ,Pessimistic,1,Yes,Yes,-,-,-,-,Yes,-,-,-,,,,,,,,,,,,,,,,,,,,,MySQL_110795
+MySQL,,READ COMMITTED,Pessimistic,1,Yes,Yes,Yes,Yes,Yes,Yes,-,-,-,-,,,,,,,,,,,,,,,,,,,,,MySQL_113468
+MySQL,,unspecified,Pessimistic,2,-,-,-,-,-,-,Yes,-,-,-,,,,,,,,,,,,,,,,,,,,,MySQL_111146
+MySQL,,unspecified,Pessimistic,5,-,-,-,-,-,-,Yes,-,Yes,-,,,,,,,,,,,,,,,,,,,,,MySQL_110733
+MySQL,,REPEATABLE READ,Pessimistic,1,-,Yes,-,-,-,Yes,Yes,-,-,Yes,,,,,,,,,,,,,,,,,,,,,MySQL_111068
+MySQL,,REPEATABLE READ,Pessimistic,1,Yes,Yes,-,Yes,Yes,-,Yes,Yes,-,-,,,,,,,,,,,,,,,,,,,,,MySQL_111215
+MySQL,,unspecified,Pessimistic,1,Yes,Yes,-,Yes,Yes,-,Yes,-,-,-,,,,,,,,,,,,,,,,,,,,,MySQL_112695
+MySQL,,unspecified,Pessimistic,2,-,-,-,-,-,-,Yes,-,-,Yes,,,,,,,,,,,,,,,,,,,,,MySQL_111770
+MySQL,,REPEATABLE READ,Pessimistic,1,Yes,Yes,-,Yes,Yes,Yes,-,Yes,-,-,,,,,,,,,,,,,,,,,,,,,MySQL_113228
+MySQL,,unspecified,Pessimistic,1,-,Yes,-,-,-,-,Yes,-,-,-,,,,,,,,,,,,,,,,,,,,,MySQL_115767
+MySQL,,REPEATABLE READ,Pessimistic,2,Yes,Yes,-,-,Yes,-,-,-,-,Yes,,,,,,,,,,,,,,,,,,,,,MySQL_116132
+MySQL,,READ COMMITTED,Pessimistic,1,Yes,Yes,-,Yes,Yes,-,-,-,Yes,-,,,,,,,,,,,,,,,,,,,,,MySQL_116813
+MySQL,,unspecified,Unspecified,2,-,-,-,-,-,-,-,-,-,Yes,,,,,,,,,,,,,,,,,,,,,MySQL_115497
+MySQL,,unspecified,Pessimistic,3,-,-,-,-,Yes,-,Yes,-,-,Yes,,,,,,,,,,,,,,,,,,,,,MySQL_115951
+MySQL,,REPEATABLE READ,Pessimistic,1,Yes,Yes,Yes,-,Yes,-,-,-,-,-,,,,,,,,,,,,,,,,,,,,,MySQL_115942
+MySQL,,unspecified,Pessimistic,1,Yes,-,-,-,-,-,-,-,-,-,,,,,,,,,,,,,,,,,,,,,MySQL_114116
+MySQL,,REPEATABLE READ,Pessimistic,1,Yes,Yes,-,-,-,-,Yes,-,-,-,,,,,,,,,,,,,,,,,,,,,MySQL_114341
+MySQL,,REPEATABLE READ,Pessimistic,1,Yes,Yes,-,-,Yes,Yes,Yes,-,-,Yes,,,,,,,,,,,,,,,,,,,,,MySQL_115181
+MySQL,,REPEATABLE READ,Pessimistic,1,-,-,-,-,-,-,Yes,-,-,Yes,,,,,,,,,,,,,,,,,,,,,MySQL_115194
+MySQL,,REPEATABLE READ,Pessimistic,1,Yes,Yes,-,Yes,-,-,-,Yes,-,-,,,,,,,,,,,,,,,,,,,,,MySQL_115563
+MySQL,,REPEATABLE READ,Pessimistic,1,Yes,Yes,-,Yes,Yes,-,Yes,-,-,-,,,,,,,,,,,,,,,,,,,,,MySQL_116067
+MySQL,,REPEATABLE READ,Pessimistic,-,-,-,-,-,-,-,-,-,-,-,,,,,,,,,,,,,,,,,,,,,MySQL_116978
+MySQL,,REPEATABLE READ,Pessimistic,1,Yes,Yes,Yes,Yes,-,Yes,Yes,-,Yes,-,,,,,,,,,,,,,,,,,,,,,MySQL_113751
+MySQL,,REPEATABLE READ,Pessimistic,1,Yes,Yes,-,Yes,-,-,Yes,-,-,-,,,,,,,,,,,,,,,,,,,,,MySQL_114502
+MySQL,,REPEATABLE READ,Pessimistic,1,Yes,Yes,-,Yes,-,-,Yes,-,-,-,,,,,,,,,,,,,,,,,,,,,MySQL_114699
+MySQL,,REPEATABLE READ,Pessimistic,-,Yes,Yes,-,Yes,-,-,-,-,-,-,,,,,,,,,,,,,,,,,,,,,MySQL_115350
+MySQL,,REPEATABLE READ,Pessimistic,1,-,-,-,-,-,-,-,-,-,Yes,,,,,,,,,,,,,,,,,,,,,MySQL_115414
+MySQL,,REPEATABLE READ,Pessimistic,1,Yes,Yes,-,Yes,Yes,-,-,-,-,-,,,,,,,,,,,,,,,,,,,,,MySQL_115518
+MySQL,,READ COMMITTED,Pessimistic,-,-,-,-,-,-,-,-,-,-,-,,,,,,,,,,,,,,,,,,,,,MySQL_116488
+MySQL,,REPEATABLE READ,Pessimistic,-,-,-,-,-,-,-,-,-,-,-,,,,,,,,,,,,,,,,,,,,,MySQL_118538
+MySQL,,SERIALIZABLE,Pessimistic,1,Yes,Yes,-,Yes,Yes,-,Yes,-,-,-,,,,,,,,,,,,,,,,,,,,,MySQL_117860
+MySQL,,REPEATABLE READ,Pessimistic,1,Yes,Yes,-,Yes,-,-,Yes,-,-,Yes,,,,,,,,,,,,,,,,,,,,,MySQL_118653
+MySQL,,REPEATABLE READ,Pessimistic,1,-,-,-,-,-,-,Yes,Yes,-,Yes,,,,,,,,,,,,,,,,,,,,,MySQL_118356
+MySQL,,REPEATABLE READ,Pessimistic,1,Yes,Yes,-,Yes,Yes,Yes,-,Yes,-,-,,,,,,,,,,,,,,,,,,,,,MySQL_117835
+MySQL,,REPEATABLE READ,Pessimistic,1,Yes,Yes,-,-,Yes,-,Yes,-,-,-,,,,,,,,,,,,,,,,,,,,,MySQL_118515
+MySQL,,READ COMMITTED,Pessimistic,1,Yes,Yes,Yes,Yes,Yes,-,-,Yes,-,-,,,,,,,,,,,,,,,,,,,,,MySQL_117733
+MySQL,,REPEATABLE READ,Pessimistic,1,Yes,Yes,-,Yes,-,-,Yes,-,-,-,,,,,,,,,,,,,,,,,,,,,MySQL_117337
+MySQL,,REPEATABLE READ,Pessimistic,1,-,-,-,-,-,-,Yes,Yes,-,Yes,,,,,,,,,,,,,,,,,,,,,MySQL_118358
+MySQL,,REPEATABLE READ,Pessimistic,1,Yes,Yes,Yes,Yes,Yes,-,-,Yes,-,Yes,,,,,,,,,,,,,,,,,,,,,MySQL_117553
+MySQL,,REPEATABLE READ,Pessimistic,2,-,-,-,-,-,-,Yes,-,-,-,,,,,,,,,,,,,,,,,,,,,MySQL_117618
+MySQL,,SERIALIZABLE,Pessimistic,1,Yes,Yes,Yes,Yes,-,Yes,-,Yes,-,-,,,,,,,,,,,,,,,,,,,,,MySQL_118516
+MariaDB,,READ COMMITTED,Pessimistic,1,-,-,-,-,-,-,-,Yes,-,-,,,,,,,,,,,,,,,,,,,,,MariaDB_MDEV-37326
+MariaDB,,REPEATABLE READ,Pessimistic,1,Yes,Yes,-,Yes,Yes,-,-,Yes,-,-,,,,,,,,,,,,,,,,,,,,,MariaDB_MDEV-37318
+MariaDB,,READ COMMITTED,Pessimistic,1,Yes,Yes,-,Yes,Yes,-,Yes,-,Yes,-,,,,,,,,,,,,,,,,,,,,,MariaDB_MDEV-37233
+MariaDB,,REPEATABLE READ,Pessimistic,1,Yes,Yes,-,Yes,Yes,-,Yes,-,-,-,,,,,,,,,,,,,,,,,,,,,MariaDB_MDEV-36994
+MariaDB,,REPEATABLE READ,Pessimistic,2,Yes,Yes,-,Yes,-,-,Yes,Yes,-,-,,,,,,,,,,,,,,,,,,,,,MariaDB_MDEV-36832
+MariaDB,,REPEATABLE READ,Pessimistic,1,Yes,Yes,-,Yes,-,-,-,Yes,-,-,,,,,,,,,,,,,,,,,,,,,MariaDB_MDEV-33937
+MariaDB,,READ UNCOMMITTED,Pessimistic,2,Yes,Yes,-,Yes,Yes,-,-,Yes,-,-,,,,,,,,,,,,,,,,,,,,,MariaDB_MDEV-33824
+MariaDB,,REPEATABLE READ,Pessimistic,2,-,-,-,-,-,-,Yes,-,-,-,,,,,,,,,,,,,,,,,,,,,MariaDB_MDEV-36970
+MariaDB,,REPEATABLE READ,Pessimistic,1,-,Yes,Yes,-,Yes,-,-,-,-,-,,,,,,,,,,,,,,,,,,,,,MariaDB_MDEV-36787
+MariaDB,,REPEATABLE READ,Pessimistic,1,-,Yes,-,Yes,-,-,Yes,-,Yes,-,,,,,,,,,,,,,,,,,,,,,MariaDB_MDEV-36493
+MariaDB,,REPEATABLE READ,Pessimistic,1,Yes,-,-,Yes,Yes,-,Yes,-,-,-,,,,,,,,,,,,,,,,,,,,,MariaDB_MDEV-36162
+MariaDB,,REPEATABLE READ,Pessimistic,2,-,-,Yes,-,Yes,-,Yes,-,-,-,,,,,,,,,,,,,,,,,,,,,MariaDB_MDEV-36102
+MariaDB,,READ COMMITTED,Pessimistic,2,-,YES,-,-,YES,-,YES,YES,-,-,,,,,,,,,,,,,,,,,,,,,MariaDB_MDEV-36022
+MariaDB,,REAPEATED READ,Pessimistic,1,-,YES,-,-,YES,-,YES,YES,-,-,,,,,,,,,,,,,,,,,,,,,MariaDB_MDEV-35374
+MariaDB,,REAPEATED READ,Pessimistic,1,-,-,-,-,-,-,YES,-,-,YES,,,,,,,,,,,,,,,,,,,,,MariaDB_MDEV-35310
+MariaDB,,REAPEATED READ,Pessimistic,1,-,-,-,-,-,-,-,-,-,YES,,,,,,,,,,,,,,,,,,,,,MariaDB_MDEV-34362
+MariaDB,,REAPEATED READ,Pessimistic,1,-,-,-,-,-,-,-,-,-,-,,,,,,,,,,,,,,,,,,,,,MariaDB_MDEV-34113
+MariaDB,,REPEATABLE READ,Pessimistic,1,-,Yes,-,-,-,-,-,Yes,-,-,,,,,,,,,,,,,,,,,,,,,MariaDB_MDEV-34064
+MariaDB,,REPEATABLE READ,Pessimistic,1,-,Yes,Yes,-,-,-,Yes,-,-,-,,,,,,,,,,,,,,,,,,,,,MariaDB_MDEV-34051
+MariaDB,,REPEATABLE READ,Pessimistic,1,-,-,-,-,Yes,-,-,-,-,-,,,,,,,,,,,,,,,,,,,,,MariaDB_MDEV-32902
+MariaDB,,REPEATABLE READ,Pessimistic,3,-,Yes,Yes,Yes,Yes,-,Yes,Yes,Yes,-,,,,,,,,,,,,,,,,,,,,,MariaDB_MDEV-32596
+MariaDB,,REPEATABLE READ,Pessimistic,2,-,Yes,Yes,-,Yes,-,-,Yes,Yes,Yes,,,,,,,,,,,,,,,,,,,,,MariaDB_MDEV-32534
+TiDB,,READ COMMITTED,Optimistic,1,Yes,Yes,-,Yes,Yes,-,-,-,Yes,-,,,,,,,,,,,,,,,,,,,,,TiDB_62517
+TiDB,,REPEATABLE READ,Pessimistic,1,Yes,Yes,-,Yes,Yes,-,-,Yes,-,Yes,,,,,,,,,,,,,,,,,,,,,TiDB_60261
+TiDB,,REPEATABLE READ,Pessimistic,1,-,-,-,-,Yes,-,-,-,-,-,,,,,,,,,,,,,,,,,,,,,TiDB_60245
+TiDB,,REPEATABLE READ,Pessimistic,1,Yes,Yes,-,Yes,-,Yes,Yes,Yes,-,-,,,,,,,,,,,,,,,,,,,,,TiDB_59781
+TiDB,,REPEATABLE READ,Pessimistic,1,-,-,-,-,-,-,Yes,Yes,-,-,,,,,,,,,,,,,,,,,,,,,TiDB_57439
+TiDB,,REPEATABLE READ,Pessimistic,1,-,-,-,Yes,-,Yes,Yes,-,-,-,,,,,,,,,,,,,,,,,,,,,TiDB_57361
+TiDB,,REPEATABLE READ,Pessimistic,1,Yes,Yes,-,Yes,Yes,-,-,Yes,Yes,-,,,,,,,,,,,,,,,,,,,,,TiDB_54744
+TiDB,,REPEATABLE READ,Pessimistic,1,Yes,Yes,-,Yes,Yes,-,Yes,-,Yes,-,,,,,,,,,,,,,,,,,,,,,TiDB_54411
+TiDB,,REPEATABLE READ,Pessimistic,1,Yes,Yes,-,Yes,Yes,-,Yes,Yes,Yes,-,,,,,,,,,,,,,,,,,,,,,TiDB_53807
+TiDB,,REPEATABLE READ,Pessimistic,1,Yes,Yes,-,-,-,-,Yes,-,-,-,,,,,,,,,,,,,,,,,,,,,TiDB_46943
+TiDB,,REPEATABLE READ,Pessimistic,1,Yes,Yes,-,Yes,Yes,-,Yes,-,Yes,-,,,,,,,,,,,,,,,,,,,,,TiDB_46900
+TiDB,,REPEATABLE READ,Pessimistic,1,Yes,Yes,-,Yes,Yes,-,-,-,Yes,-,,,,,,,,,,,,,,,,,,,,,TiDB_44379
+TiDB,,REPEATABLE READ,Pessimistic,1,Yes,Yes,-,Yes,-,-,Yes,-,-,Yes,,,,,,,,,,,,,,,,,,,,,TiDB_44077
+TiDB,,REPEATABLE READ,Pessimistic,1,Yes,Yes,-,Yes,Yes,-,-,Yes,-,-,,,,,,,,,,,,,,,,,,,,,TiDB_42487
+TiDB,,REPEATABLE READ,Pessimistic,-,-,-,-,-,-,-,-,-,-,-,,,,,,,,,,,,,,,,,,,,,TiDB_40720

@@ -1,6 +1,6 @@
 # Pisco
 
-Pisco is a transactional bug reduction framework designed to automatically simplify database anomalies. 
+Pisco is an isolation bug case reduction and deduplication framework designed to automatically simplify database anomalies. 
 It takes a complex, recorded bug case and generates a minimal and stable bug case, making it easier for developers to debug.
 
 ## Getting Started

@@ -11,13 +11,13 @@ Follow these steps to build Pisco from source and run it.
 You will need Apache Maven to build the project.
 ```shell
 mvn package assembly:single -T 16C
-mv target/orca-1.0-SNAPSHOT-jar-with-dependencies.jar orca.jar
+mv target/orca-1.0-SNAPSHOT-jar-with-dependencies.jar pisco.jar
 ```
 
 ### Run Pisco
 Use the following command to run the replay module:
 ```
-java -jar orca.jar replay <configDir> <originOutputDir> <newOutputDir>
+java -jar pisco.jar replay <configDir> <originOutputDir> <newOutputDir>
 ```
 Parameters:
 - configDir: Path to the configuration file.
@@ -49,7 +49,7 @@ Execute the following command to replay and minimize the bug case.
 Pisco will read the original workload from the out directory and save the reduced case to the replay directory.
 
 ```shell
-java -jar orca.jar replay \
+java -jar pisco.jar replay \
   ./example/tidb_42487/config_tidb_42487.yaml \
   ./example/tidb_42487/out \
   ./example/tidb_42487/replay
@@ -59,7 +59,7 @@ java -jar orca.jar replay \
 ### Usage
 To see all available commands and parameters, run the JAR file with no arguments:
 ```shell
-java -jar orca.jar
+java -jar pisco.jar
 ```
 This will display the help message:
 ```
